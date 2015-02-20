@@ -1,0 +1,24 @@
+Program   BasePlusOprNumber   
+   int  inches  =  12 ;
+   int threeFeet =   3.0  *  inches    ;
+int teaspoons = 48  ;
+   int  Cup  =  teaspoons ;
+   double   PI  = 3.14159  ;
+   Cup =  teaspoons  /   3  ;
+  Cup   =  16   *   3.0 ;
+  double  expr  =   1   + 1025  * 5000  / 20  -  124  ;
+  float yard  =  3.00 ;
+int mile = 5280 / yard ;
+  int neg  =  - 50 ;
+  float value = 123.45e10 ;
+  value  =   23.45E-10 ;
+  value =  3.45e+5 ;
+  value = 123E10  ;
+  value  = 123e-5 ;
+  value   =    12E+10 ;
+  print inches ;
+  print   Cups     ;
+  print  mile ;
+  print yard ;
+  print value    ;
+end  Program   BasePlusOprNumber  .

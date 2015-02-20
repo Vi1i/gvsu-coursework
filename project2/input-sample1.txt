@@ -1,0 +1,9 @@
+Funny   program   TestCode1   
+   Inches  per   feet  is 12
+   48 teaspoons    make   up  one  CUP
+16    tablespoons make up 1 cup
+Four  cups  make   up  one Quart
+   There are 5280   feet  in one   mile
+One  yard   has  03    feet
+03 feet make up one yard
+end funny program TestCode1  .
