@@ -1,0 +1,269 @@
+Please email this file to pop@mtu.edu
+along with a short description of what
+you were doing when the error occured.
+Thanks.
+JLS 4.1.4 <p>[built on April 1, 2013 at 3:30 PM]
+-- listing properties --
+java.runtime.name=OpenJDK Runtime Environment
+sun.boot.library.path=/usr/lib/jvm/java-7-openjdk/jre/lib/a...
+java.vm.version=24.65-b04
+java.vm.vendor=Oracle Corporation
+java.vendor.url=http://java.oracle.com/
+path.separator=:
+java.vm.name=OpenJDK 64-Bit Server VM
+file.encoding.pkg=sun.io
+user.country=US
+sun.java.launcher=SUN_STANDARD
+sun.os.patch.level=unknown
+java.vm.specification.name=Java Virtual Machine Specification
+user.dir=/home/slag/git/vi1i/GVSU/CIS451
+java.runtime.version=1.7.0_71-b14
+java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment
+java.endorsed.dirs=/usr/lib/jvm/java-7-openjdk/jre/lib/e...
+os.arch=amd64
+java.io.tmpdir=/tmp
+line.separator=
+
+java.vm.specification.vendor=Oracle Corporation
+os.name=Linux
+sun.jnu.encoding=UTF-8
+java.library.path=/usr/java/packages/lib/amd64:/usr/lib...
+sun.awt.enableExtraMouseButtons=true
+java.specification.name=Java Platform API Specification
+java.class.version=51.0
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+os.version=3.17.4-1-ARCH
+user.home=/home/slag
+user.timezone=America/Detroit
+java.awt.printerjob=sun.print.PSPrinterJob
+file.encoding=UTF-8
+java.specification.version=1.7
+user.name=slag
+java.class.path=/home/slag/git/vi1i/GVSU/CIS451/JLSPr...
+java.vm.specification.version=1.7
+sun.arch.data.model=64
+java.home=/usr/lib/jvm/java-7-openjdk/jre
+sun.java.command=/home/slag/git/vi1i/GVSU/CIS451/JLSPr...
+java.specification.vendor=Oracle Corporation
+user.language=en
+awt.toolkit=sun.awt.X11.XToolkit
+java.vm.info=mixed mode
+java.version=1.7.0_71
+java.ext.dirs=/usr/lib/jvm/java-7-openjdk/jre/lib/e...
+sun.boot.class.path=/usr/lib/jvm/java-7-openjdk/jre/lib/r...
+java.vendor=Oracle Corporation
+file.separator=/
+java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+sun.cpu.endian=little
+sun.io.unicode.encoding=UnicodeLittle
+sun.font.fontmanager=sun.awt.X11FontManager
+sun.desktop=gnome
+sun.cpu.isalist=
+java.lang.NullPointerException
+	at edu.mtu.cs.jls.elem.WireEnd.save(WireEnd.java:523)
+	at edu.mtu.cs.jls.Circuit.save(Circuit.java:605)
+	at edu.mtu.cs.jls.edit.SimpleEditor$EditWindow.markChanged(SimpleEditor.java:3664)
+	at edu.mtu.cs.jls.edit.SimpleEditor$EditWindow.mousePressed(SimpleEditor.java:1659)
+	at java.awt.Component.processMouseEvent(Component.java:6513)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3311)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4489)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+CIRCUIT multiplier
+ELEMENT WireEnd
+ int id 0
+ int x 1512
+ int y 24
+ int width 6
+ int height 6
+ ref wire 14
+END
+ELEMENT WireEnd
+ int id 1
+ int x 96
+ int y 12
+ int width 6
+ int height 6
+ String put "0"
+ ref attach 2
+ ref wire 8
+END
+ELEMENT Splitter
+ int id 2
+ int x 60
+ int y 0
+ int width 36
+ int height 204
+ int bits 16
+ String orient "RIGHT"
+ String noncontig "true"
+ int tristate 0
+ pair 0 0
+ pair 1 1
+ pair 2 2
+ pair 3 3
+ pair 4 4
+ pair 5 5
+ pair 6 6
+ pair 7 7
+ pair 8 8
+ pair 9 9
+ pair 10 10
+ pair 11 11
+ pair 12 12
+ pair 13 13
+ pair 14 14
+ pair 15 15
+END
+ELEMENT WireEnd
+ int id 3
+ int x 60
+ int y 96
+ int width 6
+ int height 6
+ String put "input"
+ ref attach 2
+ ref wire 18
+END
+ELEMENT WireEnd
+ int id 4
+ int x 1512
+ int y 36
+ int width 6
+ int height 6
+ ref wire 16
+END
+ELEMENT WireEnd
+ int id 5
+ int x 60
+ int y 324
+ int width 6
+ int height 6
+ String put "input"
+ ref attach 10
+ ref wire 15
+END
+ELEMENT InputPin
+ int id 6
+ int x 0
+ int y 312
+ int width 60
+ int height 24
+ String name "InputB"
+ int bits 16
+ int watch 0
+ String orient "RIGHT"
+END
+ELEMENT WireEnd
+ int id 8
+ int x 1512
+ int y 12
+ int width 6
+ int height 6
+ ref wire 1
+END
+ELEMENT Splitter
+ int id 10
+ int x 60
+ int y 228
+ int width 36
+ int height 204
+ int bits 16
+ String orient "RIGHT"
+ String noncontig "true"
+ int tristate 0
+ pair 0 0
+ pair 1 1
+ pair 2 2
+ pair 3 3
+ pair 4 4
+ pair 5 5
+ pair 6 6
+ pair 7 7
+ pair 8 8
+ pair 9 9
+ pair 10 10
+ pair 11 11
+ pair 12 12
+ pair 13 13
+ pair 14 14
+ pair 15 15
+END
+ELEMENT InputPin
+ int id 11
+ int x 0
+ int y 84
+ int width 60
+ int height 24
+ String name "InputA"
+ int bits 16
+ int watch 0
+ String orient "RIGHT"
+END
+ELEMENT WireEnd
+ int id 14
+ int x 96
+ int y 24
+ int width 6
+ int height 6
+ String put "1"
+ ref attach 2
+ ref wire 0
+END
+ELEMENT WireEnd
+ int id 15
+ int x 60
+ int y 324
+ int width 0
+ int height 0
+ String put "output"
+ ref attach 6
+ ref wire 5
+END
+ELEMENT WireEnd
+ int id 16
+ int x 96
+ int y 36
+ int width 6
+ int height 6
+ String put "2"
+ ref attach 2
+ ref wire 4
+END
+ELEMENT WireEnd
+ int id 18
+ int x 60
+ int y 96
+ int width 0
+ int height 0
+ String put "output"
+ ref attach 11
+ ref wire 3
+END
+ENDCIRCUIT
