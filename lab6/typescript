@@ -1,0 +1,17 @@
+Script started on Thu 19 Feb 2015 09:54:10 AM EST
+[?1034h[eos08:~/git/GVSU/CIS452/lab6]$ gcc -Wall -g sps[K1.c 
+[eos08:~/git/GVSU/CIS452/lab6]$ ./a.out 10
+values: 0	1
+[eos08:~/git/GVSU/CIS452/lab6]$ ./a.out 100
+values: 0	1
+[eos08:~/git/GVSU/CIS452/lab6]$ ./a.out 1000
+values: 0	1
+[eos08:~/git/GVSU/CIS452/lab6]$ ./a.out 10000
+values: 0	1
+[eos08:~/git/GVSU/CIS452/lab6]$ ./a.out 100000
+values: 0	1
+[eos08:~/git/GVSU/CIS452/lab6]$ ./a.out 1000000
+values: 0	1
+[eos08:~/git/GVSU/CIS452/lab6]$ exit
+
+Script done on Thu 19 Feb 2015 09:54:35 AM EST
