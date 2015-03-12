@@ -4,11 +4,16 @@
 #include <sys/resource.h>
 #include <sys/sysinfo.h>
 #include <time.h>
+#include <unistd.h>
 
 double getResTime (void);
 
 int main(void){
-    printf("%.100f\n", getResTime());
+    printf("%.50f\n", getResTime());
+    printf("%li\n", sysconf(_SC_PAGESIZE));
+    printf("%li\n", sysconf(_SC_PHYS_PAGES));
+    printf("%li\n", sysconf(_SC_CHILD_MAX));
+    printf("%li\n", sysconf(_SC_OPEN_MAX));
     return 0;
 }
 
