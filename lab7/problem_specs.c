@@ -4,12 +4,14 @@
 #include <sys/resource.h>
 #include <sys/sysinfo.h>
 #include <time.h>
+#include <unistd.h>
 
 double getResTime (void);
 
 int main(void){
     printf("%.100f\n", getResTime());
-    return 0;
+    printf(sysconf(_SC_PAGESIZE));
+	return 0;
 }
 
 double getResTime (void) {
