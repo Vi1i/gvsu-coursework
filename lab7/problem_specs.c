@@ -3,21 +3,19 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <sys/sysinfo.h>
+#include <time.h>
+
+double getResTime (void);
+
 int main(void){
-    struct rlimit limit;
-    struct sysinfo sinfo;
-    //size of file
-    getrlimit(RLIMIT_FSIZE, &limit);
-    printf("File Size:\n");
-    printf("\tsoft: %lld\n", (long long int)limit.rlim_cur);
-    printf("\thard: %lld\n", (long long int)limit.rlim_max);
-    for(;;){
-        limit.rlim_cur += 1;
-        limit.rlim_max += 1;
-        setrlimit(RLIMIT_FSIZE, &limit);
-        printf("\tsoft: %lld\n", (long long int)limit.rlim_cur);
-        printf("\thard: %lld\n", (long long int)limit.rlim_max);
-    }
-    //sysinfo(sinfo);
+    printf("%.100f\n", getResTime());
     return 0;
+}
+
+double getResTime (void) {
+    struct timespec t;
+    if (0 > clock_getres(CLOCK_REALTIME, &t)) {
+        return ((double)-1);
+    }
+    return (double)(t.tv_sec + 1.0e-9 * t.tv_nsec);  
 }
