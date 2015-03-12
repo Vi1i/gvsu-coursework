@@ -9,9 +9,12 @@
 double getResTime (void);
 
 int main(void){
-    printf("%.100f\n", getResTime());
-    printf(sysconf(_SC_PAGESIZE));
-	return 0;
+    printf("%.50f\n", getResTime());
+    printf("%li\n", sysconf(_SC_PAGESIZE));
+    printf("%li\n", sysconf(_SC_PHYS_PAGES));
+    printf("%li\n", sysconf(_SC_CHILD_MAX));
+    printf("%li\n", sysconf(_SC_OPEN_MAX));
+    return 0;
 }
 
 double getResTime (void) {
