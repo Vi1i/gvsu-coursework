@@ -1,0 +1,5 @@
+for i in eos22 arch03 eos29
+do
+        echo -n "$i "
+        ssh $i $PWD/a.out > $PWD/file_$i
+done
