@@ -8,7 +8,7 @@ int main()
 {
    int count, *intPtr;
 
-   long int i, j, dim = 2 * KB;
+   long int i, j, dim = 51 * KB;
 
    if ((intPtr = malloc (dim * dim * sizeof(int))) == 0) {
       perror ("totally out of space");
@@ -17,7 +17,7 @@ int main()
    for (count=1; count<=LOOP; count++)
       for (i=0; i<dim; i++)
          for (j=0; j<dim; j++)
-            intPtr[i * dim + j] = (i + j) % count;
+            intPtr[j * dim + i] = (i + j) % count;
 
    free (intPtr);
    return 0;
