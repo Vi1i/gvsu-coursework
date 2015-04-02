@@ -1,0 +1,32 @@
+Script started on Thu 02 Apr 2015 10:36:50 AM EDT
+[?1034h[eos07:~/git/cis452/lab10]$ gcc -Wall sp1.c 
+[eos07:~/git/cis452/lab10]$ ./a.out [K[K[K[K[K[K[K[Kstat sam[K[Kp1.c 
+  File: ‘sp1.c’
+  Size: 572       	Blocks: 8          IO Block: 1048576 regular file
+Device: 27h/39d	Inode: 67509878    Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 6771/  maherm)   Gid: (  500/   users)
+Access: 2015-04-02 10:36:03.812842512 -0400
+Modify: 2015-04-02 10:35:58.427817409 -0400
+Change: 2015-04-02 10:35:58.428817414 -0400
+ Birth: -
+[eos07:~/git/cis452/lab10]$ ./a.out sp1.c 
+This is NOT a directory! This is a file!!
+value is: 33188
+[eos07:~/git/cis452/lab10]$ stat .
+  File: ‘.’
+  Size: 4096      	Blocks: 8          IO Block: 1048576 directory
+Device: 27h/39d	Inode: 67507735    Links: 2
+Access: (0755/drwxr-xr-x)  Uid: ( 6771/  maherm)   Gid: (  500/   users)
+Access: 2015-04-02 10:37:14.073170290 -0400
+Modify: 2015-04-02 10:37:10.490153467 -0400
+Change: 2015-04-02 10:37:10.490153467 -0400
+ Birth: -
+[eos07:~/git/cis452/lab10]$ ./a.out .
+This is a directory!
+value is: 16877
+[eos07:~/git/cis452/lab10]$ 
+[eos07:~/git/cis452/lab10]$ 
+[eos07:~/git/cis452/lab10]$ exit
+exit
+
+Script done on Thu 02 Apr 2015 10:37:47 AM EDT

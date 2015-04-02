@@ -18,6 +18,12 @@ int main(int argc, char *argv[])
       exit(1);
    }
 
+	if (S_ISDIR(statBuf.st_mode)){
+		printf("This is a directory!\n");
+	}else if(S_ISREG(statBuf.st_mode)){
+		printf("This is NOT a directory! This is a file!!\n");
+	}
+
    printf ("value is: %u\n", statBuf.st_mode);
    return 0;
 } 
