@@ -1,4 +1,5 @@
-#include <stdio.h> 
+#include <stdio.h>
+#include <string.h>
 #include <dirent.h> 
 #include <sys/stat.h> 
 #include <sys/types.h> 
@@ -6,12 +7,16 @@
 
 int main(){ 
    DIR *dirPtr; 
-   struct dirent *entryPtr; 
+   struct dirent *entryPtr;
+   struct stat statbuf;
 
    dirPtr = opendir (".");
 
-   while ((entryPtr = readdir (dirPtr))) 
-      printf ("%-20s", entryPtr->d_name);
+
+   while ((entryPtr = readdir (dirPtr))){
+        stat(entryPtr->d_name, &statbuf);
+        printf ("%s\t\t%u\n", entryPtr->d_name, statbuf.st_size);
+   }
    closedir (dirPtr); 
    return 0; 
 }
