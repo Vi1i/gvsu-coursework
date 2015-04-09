@@ -1,0 +1,9 @@
+#!/bin/bash
+for caches in 1024 4096 16384; do
+    for blocks in 8 16 32 64 ; do
+        echo "---------------------------dl1:$(($caches / $blocks)):${blocks}:1:l---------------------------"
+        ~kurmasz/public/Simplescalar/bin/sim-cache -cache:dl1 dl1:$(($caches / $blocks)):${blocks}:1:l -redir:prog opt -redir:sim dl1:$(($caches / $blocks)):${blocks}:1:l ~kurmasz/public/Simplescalar/Tests/qsort/ss_qsort input_1e4
+        cat dl1:$(($caches / $blocks)):${blocks}:1:l | grep dl1.miss_rate
+    done
+done
+exit 0
