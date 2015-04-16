@@ -1,0 +1,22 @@
+Script started on Thu 09 Apr 2015 11:08:37 AM EDT
+[1m[3m%[23m[1m[0m                                                                                       k../cis452/lab11\[0m[23m[24m[J[39m[0m[49m[44m[30m ~/git/vi1i/cis452/lab11 [43m[34m[30m  master [49m[33m[39m [K[?1h=../a.ot     a.out sp1.c TestHard[?1l>
+k./a.out\[1m[3m%[23m[1m[0m                                                                                       k../cis452/lab11\[0m[23m[24m[J[39m[0m[49m[44m[30m ~/git/vi1i/cis452/lab11 [43m[34m[30m  master [49m[33m[39m [K[?1h=../a.out -s sp1.cTestS      TestSoft[?1l>
+k./a.out\[1m[3m%[23m[1m[0m                                                                                       k../cis452/lab11\[0m[23m[24m[J[39m[0m[49m[44m[30m ~/git/vi1i/cis452/lab11 [43m[34m[30m  master [49m[33m[39m [K[?1h=lls -al[?1l>
+kls\total 124
+drwxr-xr-x  2 oboylel users  4096 Apr  9  2015 [0m[38;5;27m.[0m
+drwxr-xr-x 16 oboylel users  4096 Apr  9 11:00 [38;5;27m..[0m
+-rwxr-xr-x  1 oboylel users  8866 Apr  9 10:48 [38;5;34ma[0m
+-rwxr-xr-x  1 oboylel users  8664 Apr  9 11:07 [38;5;34ma.out[0m
+-rwxr-xr-x  1 oboylel users  8815 Apr  9 10:35 [38;5;34mb[0m
+-rw-------  1 oboylel users 45964 Apr  9 10:37 [38;5;13mlab11_a_b_output.png[0m
+-rw-r--r--  1 oboylel users   291 Apr  9 11:06 pa1.c
+-rw-r--r--  1 oboylel users 12288 Apr  9 11:07 .pa1.c.swp
+-rw-r--r--  1 oboylel users   830 Apr  9 10:36 sp1a.c
+-rw-r--r--  1 oboylel users   917 Apr  9 10:36 sp1b.c
+-rw-r--r--  2 oboylel users   696 Apr  9 10:36 [44;38;5;15msp1.c[0m
+-rw-r--r--  2 oboylel users   696 Apr  9 10:36 [44;38;5;15mTestHard[0m
+lrwxrwxrwx  1 oboylel users     5 Apr  9  2015 [38;5;51mTestSoft[0m -> sp1.c
+-rw-r--r--  1 oboylel users     0 Apr  9 11:08 typescript
+[1m[3m%[23m[1m[0m                                                                                       k../cis452/lab11\[0m[23m[24m[J[39m[0m[49m[44m[30m ~/git/vi1i/cis452/lab11 [43m[34m[30m  master [49m[33m[39m [K[?1h=
+
+Script done on Thu 09 Apr 2015 11:09:29 AM EDT
