@@ -63,6 +63,7 @@ public class Encrypt {
             e.printStackTrace(System.out);
             System.exit(1);
         }
+
         byte[] block = new byte[16];
         int i;
         try {
@@ -74,25 +75,15 @@ public class Encrypt {
             System.out.println(e.getMessage());
             e.printStackTrace(System.out);
         }
-        //TODO Output IV
         try {
-            FileOutputStream out = new FileOutputStream("iv");
-            out.write(this.iv);
-            out.close();
-        }catch(java.io.FileNotFoundException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }catch(java.io.IOException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
-        //TODO Output the Key
-        try {
-            FileOutputStream out = new FileOutputStream("key");
-            out.write(this.key.getEncoded());
-            out.close();
+            FileOutputStream ivOut = new FileOutputStream("iv");
+            FileOutputStream keyOut = new FileOutputStream("key");
+
+            ivOut.write(this.iv);
+            keyOut.write(this.key.getEncoded());
+
+            ivOut.close();
+            keyOut.close();
         }catch(java.io.FileNotFoundException e) {
             System.out.println(e.getMessage());
             e.printStackTrace(System.out);

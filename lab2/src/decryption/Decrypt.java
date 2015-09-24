@@ -30,8 +30,12 @@ public class Decrypt {
     public Decrypt(String cipherTextFile)
     {
         try {
+            // Creates a file stream from the encrypted file
             this.etf = new FileInputStream(cipherTextFile);
+
             String clearTextFile = cipherTextFile + ".dec";
+
+            // Creates a file stream to the new clear text file
             this.ctf = new FileOutputStream(clearTextFile);
         } catch (java.io.FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -40,6 +44,7 @@ public class Decrypt {
         }
 
         try {
+            // Creates a new ciher with AES/CBC/PKCS5Padding settings
             this.cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         }catch (java.security.NoSuchAlgorithmException e) {
             System.out.println(e.getMessage());
@@ -52,7 +57,10 @@ public class Decrypt {
         }
 
         try {
+            // Reads in all data of IV
             this.iv = Files.readAllBytes(Paths.get("iv"));
+
+            // Reads in all data of key and recreates the key
             this.key = new SecretKeySpec(Files.readAllBytes(Paths.get("key")), "AES");
         }catch(java.io.IOException e) {
             System.out.println(e.getMessage());
@@ -64,6 +72,7 @@ public class Decrypt {
 
     public void decrypt() {
         try {
+            // Initial the cipher into decrypt mode with the key and iv
             this.cipher.init(Cipher.DECRYPT_MODE, this.key, new IvParameterSpec(this.iv));
         }catch(java.security.InvalidKeyException e) {
             System.out.println(e.getMessage());
@@ -74,12 +83,15 @@ public class Decrypt {
             e.printStackTrace(System.out);
             System.exit(1);
         }
+        // Creates the cipher stream to decrypt
         this.cis = new CipherInputStream(this.etf, this.cipher);
 
-        byte[] block = new byte[32];
+        byte[] block = new byte[32];  // Block read size
         int i;
         try {
+            // Reads the encrypted file in
             while ((i = cis.read(block)) != -1) {
+                // Writes the file out
                 this.ctf.write(block, 0, i);
             }
             this.ctf.close();
