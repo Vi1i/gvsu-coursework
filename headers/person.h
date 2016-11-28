@@ -5,16 +5,17 @@
 #ifndef MISIM_PERSON_H
 #define MISIM_PERSON_H
 
+#include "tuberculosis.h"
+
 class Person {
 public:
-    Person();
+    Person(bool infected);
     ~Person();
 private:
+    unsigned int _county_id;
+    unsigned int _school_id;
     unsigned int _id;
-    bool infected;
-    bool latentInfection;
-    double chanceToBeInfected;
-    double chanceToInfect;
+    Tuberculosis _tb;
 };
 
 #endif //MISIM_PERSON_H
