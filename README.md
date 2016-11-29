@@ -1,0 +1,2 @@
+# mpiHomework
+First MPI homework
