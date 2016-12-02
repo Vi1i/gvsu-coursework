@@ -5,8 +5,8 @@
 #ifndef MISIM_PERSON_H
 #define MISIM_PERSON_H
 
-#include "tuberculosis.h"
-#include "school.h"
+#include "Tuberculosis.h"
+#include "School.h"
 
 class Person {
 public:

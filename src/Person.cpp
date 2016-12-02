@@ -2,7 +2,7 @@
 // Created by Vi1i on 11/22/16.
 //
 
-#include "../headers/person.h"
+#include "../headers/Person.h"
 
 Person::Person(unsigned int id, Tuberculosis * tb, School * school) {
     this->_id = id;
