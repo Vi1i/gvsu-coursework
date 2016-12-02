@@ -8,6 +8,9 @@ TODO: Write a project description
 TODO: Describe the installation process
 
 ## Usage
+#### Requirements
+* cmake
+* mysql++
 
 TODO: Write usage instructions
 
