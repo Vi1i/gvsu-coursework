@@ -11,7 +11,7 @@
 class School {
 public:
     enum Grade {
-        K,
+        K = 0,
         FIRST,
         SECOND,
         THIRD,
@@ -26,8 +26,9 @@ public:
         TWELTH
     };
 
-    School();
+    School(Grade grade, unsigned int district_id);
     ~School();
+
 private:
     std::map<Grade, const std::string> grades = {
             {Grade::K, "K"},
@@ -43,8 +44,8 @@ private:
             {Grade::TENTH, "TENTH"},
             {Grade::ELEVENTH, "ELEVENTH"},
             {Grade::TWELTH, "TWELTH"}
-    }
-
+    };
+    unsigned int _district_id;
 };
 
 #endif //MISIM_SCHOOL_H
