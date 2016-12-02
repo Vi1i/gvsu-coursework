@@ -32,8 +32,9 @@ private:
             {Stage::FIVE, "Death"}
     };
     
-    std::string name;
-    int current_stage;
+    std::string _name;
+    int _current_stage;
+    bool _infected;
 };
 
 #endif //MISIM_INFECTION_H

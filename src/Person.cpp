@@ -4,7 +4,7 @@
 
 #include "../headers/person.h"
 
-Person::Person(unsigned int id, Tuberculosis tb, School school) {
+Person::Person(unsigned int id, Tuberculosis * tb, School * school) {
     this->_id = id;
     this->_tb = tb;
     this->_school = school;

@@ -6,16 +6,16 @@
 #define MISIM_PERSON_H
 
 #include "tuberculosis.h"
+#include "school.h"
 
 class Person {
 public:
-    Person(bool infected);
+    Person(unsigned int id, Tuberculosis * tb, School * school);
     ~Person();
 private:
-    unsigned int _county_id;
-    unsigned int _school_id;
     unsigned int _id;
-    Tuberculosis _tb;
+    Tuberculosis * _tb;
+    School * _school;
 };
 
 #endif //MISIM_PERSON_H
