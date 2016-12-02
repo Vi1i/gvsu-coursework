@@ -1,24 +1,24 @@
 #include <iostream>
+#include <vector>
 #include "headers/DBConnetionManager.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    std::string db;
-    std::string server;
-    std::string user;
-    std::string password;
+    std::string dbname   = "";
+    std::string server   = "";
+    std::string username = "";
+    std::string password = "";
 
     DBConnectionManager connectionManager = DBConnectionManager(
-            db, server, username, password);
+            dbname, server, username, password);
 
     if(connectionManager.ConnectionCheck()) {
         connectionManager.QueryCheck("SELECT * FROM baseEntityMaster1314");
         connectionManager.Query();
-        std::cerr << "Passed!" << std::endl;
-        std::string * row = connectionManager.GetRow();
+        std::vector<std::string> row = connectionManager.GetRow();
 
-        for(auto it = row->begin(); it != row->end(); ++it) {
+        for(auto it = row.begin(); it != row.end(); ++it) {
             std::cout << *it << std::endl;
         }
     }else{

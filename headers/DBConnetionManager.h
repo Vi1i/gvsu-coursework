@@ -17,7 +17,7 @@ public:
     bool ConnectionCheck();
     bool QueryCheck(std::string q_str);
     bool  Query();
-    std::string * GetRow();
+    std::vector<std::string> GetRow();
     bool PrevRow();
     bool NextRow();
 

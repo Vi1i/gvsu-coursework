@@ -30,24 +30,22 @@ bool DBConnectionManager::QueryCheck(std::string q_str) {
 }
 
 bool DBConnectionManager::Query() {
-    *(this->_query) = this->conn->query(this->_query_str); // ERROR
-    std::cerr << "HERE" << std::endl;
+    this->_query = new mysqlpp::Query(this->conn->query(this->_query_str));
     this->_store_query_result = this->_query->store();
     this->_query_iterator = this->_store_query_result.begin();
 }
 
-std::string * DBConnectionManager::GetRow() {
-    std::string * row_str;
+std::vector<std::string> DBConnectionManager::GetRow() {
     int counter = 0;
+    std::vector<std::string> data;
     mysqlpp::Row row = *(this->_query_iterator);
 
-    row_str = new std::string[row.size()];
-
     for(mysqlpp::Row::iterator it = row.begin(); it != row.end(); ++it) {
-        row_str[counter] = (*it).c_str();
+        std::string temp_s = (*it).c_str();
+        data.push_back(temp_s);
     }
 
-    return row_str;
+    return data;
 }
 
 bool DBConnectionManager::NextRow() {
