@@ -4,8 +4,13 @@
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
+    std::string db;
+    std::string server;
+    std::string user;
+    std::string password;
+
     DBConnectionManager connectionManager = DBConnectionManager(
-            "EntityMaster1314", "localhost", "root", "Voidtak3?");
+            db, server, username, password);
 
     if(connectionManager.ConnectionCheck()) {
         connectionManager.QueryCheck("SELECT * FROM baseEntityMaster1314");
