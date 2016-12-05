@@ -18,12 +18,19 @@ public:
         FOUR,
         FIVE
     };
-    Tuberculosis(bool infected);
+    Tuberculosis(bool infected, bool vaccinated);
     ~Tuberculosis();
 
-
+    void NextStage(double chance);
+    std::string GetStage(int stage);
+    bool Infected();
+    bool CanInfect();
+    void NewDay();
+    void Vaccinate();
+    bool Vaccinated();
+    bool Dead();
 private:
-    std::map<Stage, const std::string> stages = {
+    std::map<Stage, const std::string> _stages = {
             {Stage::ZERO, "Not Infected"},
             {Stage::ONE, "Infected"},
             {Stage::TWO, "Latent Infection"},
@@ -35,6 +42,8 @@ private:
     std::string _name;
     int _current_stage;
     bool _infected;
+    bool _vaccinated;
+    int _days_since_infection;
 };
 
 #endif //MISIM_INFECTION_H
