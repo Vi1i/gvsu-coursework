@@ -5,10 +5,10 @@
 
 namespace Test {
     inline bool DBConnectionManagerTest() {
-        std::string dbname   = "oboylela";
-        std::string server   = "cis.gvsu.edu";
-        std::string username = "oboylela";
-        std::string password = "Voidtak3?";
+        std::string dbname   = "";
+        std::string server   = "";
+        std::string username = "";
+        std::string password = "";
 
     try {
         DBConnectionManager connectionManager = DBConnectionManager(
@@ -36,7 +36,7 @@ namespace Test {
         int length_of_sim = 365;
         int time_interval = 15;
         unsigned int seed = 2;
-        std::string filename_in = "../temp";
+        std::string filename_in = "../school-population-breakdown";
         Sim sim = Sim(length_of_sim, time_interval, seed,filename_in);
 
         std::cout << "Reading data" << std::endl;
