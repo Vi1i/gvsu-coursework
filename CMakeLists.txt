@@ -9,7 +9,7 @@ find_package(MySQL REQUIRED)
 
 include_directories(${MYSQL++_INCLUDE_DIR} ${MYSQL_INCLUDE_DIR} REQUIRED)
 
-set(SOURCE_FILES main.cpp headers/Person.h src/Person.cpp headers/Tuberculosis.h headers/School.h headers/Sim.h src/Sim.cpp headers/DBConnetionManager.h src/School.cpp src/Tuberculosis.cpp src/DBConnectionManager.cpp)
+set(SOURCE_FILES main.cpp headers/Person.h src/Person.cpp headers/Tuberculosis.h headers/Sim.h src/Sim.cpp headers/DBConnetionManager.h src/Tuberculosis.cpp src/DBConnectionManager.cpp)
 add_executable(miSim ${SOURCE_FILES})
 
 target_link_libraries(miSim ${MYSQL++_LIBRARIES} ${MYSQL_LIBRARY})
