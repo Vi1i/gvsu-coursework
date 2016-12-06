@@ -1,46 +1,49 @@
-
 #include<stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdbool.h>
 
-//#include <mpi.h>
-#include <sys/time.h>
-#define size 8
-int totSolutions =0;
-bool placable( int col, int board[])
-{
-
-    for (int i =0; i<col; i++){
-        if(abs(board[i]-board[col]) == (col-i))
+bool valid_move(int col, int board[]) {
+    for(int i = 0; i < col; i++) {
+        if(abs(board[i] - board[col]) == (col - i)) {
             return false;
-        if(board[i]== board[col])
+        }
+        if(board[i] == board[col]) {
             return false;
+        }
     }
     return true; 
-
 }
-int place_queen (int col,int board[])
-{
-    
-   if(col == size){
-       totSolutions++;
-    }
-   else{
-       for(int j = 0; j<size; j++){
-           board[col]= j;
-           if(placable(col,board) == true){
-                place_queen(col+1,board);
+
+int place_queen(size_t size, int col, int board[]) {
+    int solutions = 0;
+    if(col == size) {
+        return 1;
+    }else{
+        for(int j = 0; j < size; j++) {
+            board[col] = j;
+            if(valid_move(col, board)) {
+                solutions += place_queen(size, col + 1, board);
             }
         }
     }
 
-    return 0; 
+    return solutions; 
 }
-int main()
-{
-    //printf("yes");
+
+int main(int argc, char * argv[]) {
+    if(argc != 2) {
+        fprintf(stderr, "Usage: %s [BOARDSIZE]\n", argv[0]);
+        return 1;
+    }
+
+    char *ptr;
+    size_t size;
+
+    size = strtol(argv[1], &ptr, 10);
+
     int board[size];
-    place_queen(0,board);
-    printf("%d\n",totSolutions);
+    int solutions;
+    solutions = place_queen(size, 0, board);
+    printf("%d\n", solutions);
     return 0;
 }
