@@ -35,10 +35,9 @@ int place_queen(size_t board_size, int * board, int col) {
 
 int mpi_k_queens(int argc, char * argv[], size_t board_size) {
     int my_rank;
-    int source;
     int num_nodes;
 
-    int solutions;
+    int solutions = 0;
     int * board;
     board = (int *) malloc(board_size * sizeof(int));
 
@@ -46,14 +45,21 @@ int mpi_k_queens(int argc, char * argv[], size_t board_size) {
     MPI_Comm_rank(MPI_COMM_WORLD, & my_rank);
     MPI_Comm_size(MPI_COMM_WORLD, & num_nodes);
 
-    if(my_rank != MASTER) {
-    printf("Master has %d workers.\n", num_nodes - 1);
+    if(my_rank == MASTER) {
+        for(int z = 0; z < board_size; z++) {
+            int result;
+            MPI_Recv(&result, 1, MPI_INT, MPI_ANY_SOURCE, 0,
+                    MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            solutions += result;
+        }
     }else{
-    printf("Worker-%d\n", my_rank);
+        solutions = place_queen(board_size, board, 0);
+        MPI_Send(&solutions, 1, MPI_INT, MASTER, 0, MPI_COMM_WORLD);
     }
 
     MPI_Finalize();
-    return 0;
+        printf("%d\n", solutions);
+    return solutions;
 }
 
 int seq_k_queens(size_t board_size) {
@@ -87,7 +93,6 @@ int main(int argc, char * argv[]) {
         solutions = mpi_k_queens(argc, argv, board_size);
     }else{
         solutions = seq_k_queens(board_size);
-        printf("Sequetial: %d\n", solutions);
     }
 
     return 0;
