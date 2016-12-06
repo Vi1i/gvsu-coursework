@@ -1,5 +1,8 @@
 #Binary
 k-queens
 
+#C files
+*.o
+
 #Vim swap file
 *.swp
