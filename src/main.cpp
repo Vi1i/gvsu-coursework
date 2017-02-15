@@ -13,7 +13,9 @@
 
 
 std::string total_category_word_count("lyj7MepVPo8m8N8o");
-std::string total_category_doc_count("F1vs8KymEXNmmIod");
+std::string total_cat("F1vs8KymEXNmmIod");
+int total_docs(0);
+
 
 void version(const std::string & cmd) {
     fprintf(stderr,"%s Version %d.%d.%d\n", cmd.c_str(), nbdc_VERSION_MAJOR,
@@ -21,7 +23,8 @@ void version(const std::string & cmd) {
 }
 
 void ReadTrFile(std::string filename,
-			  std::map<std::string, std::ostringstream>& data) {
+			  std::map<std::string, std::ostringstream>& data,
+			  std::map<std::string, std::map<std::string, int>> & data_info) {
 	//Opening the file
 	std::ifstream in_file(filename);
 	//Where the lines from the file will be stored
@@ -49,6 +52,8 @@ void ReadTrFile(std::string filename,
 			if(count == 0) {
 				cat += token;
 				count++;
+				data_info[cat]["Docs"]++;
+				total_docs++;
 				continue;
 			}
 			//Eliminates unwanted spaces in my stream
@@ -60,30 +65,38 @@ void ReadTrFile(std::string filename,
 			os << token;
 			count++;
 		}
+		data_info[cat]["Words"] += (count - 1);
 		//Add the stream to the passed in stream
 		data[cat] << " " << os.str();
 	}
+	int temp_docs(0);
+	int temp_words(0);
+	for(auto const& map : data_info) {
+		temp_docs += map.second.at("Docs");
+		temp_words += map.second.at("Words");
+	}
+
+	data_info[total_cat]["Docs"] = temp_docs;
+	data_info[total_cat]["Words"] = temp_words;
 }
 
 void ProcessData(const std::map<std::string, std::ostringstream>& data,
-				 std::map<std::string, std::map<std::string, double>>&
-				 processed_data,
+				 const std::map<std::string, std::map<std::string, int>> & data_info,
+				 std::map<std::string, std::map<std::string, double>>& processed_data,
+				 std::map<std::string, std::map<std::string, double>>& processed_data_info,
 				 std::map<std::string, std::map<std::string, int>>& cat_vocab,
-				 std::map<std::string, int>& vocab,
-				 std::map<std::string, int>& cat_doc_count) {
-	int total_words;
+				 std::map<std::string, int>& vocab) {
+
 	//Gets the indivudal category vocab
 	for(auto const& map : data) {
 		std::istringstream iss(map.second.str());
 		std::string word;
 		while(iss >> word) {
 			cat_vocab[map.first][word]++;
-			//cat_vocab[map.first][total_category_word_count]++;
 		}
 		for(auto const& word : cat_vocab[map.first]) {
 			cat_vocab[map.first][total_category_word_count] += word.second;
 		}
-		cat_vocab[map.first][total_category_doc_count]++;
 	}
 
 	//Gets the total counts of all words found
@@ -93,7 +106,8 @@ void ProcessData(const std::map<std::string, std::ostringstream>& data,
 		}
 	}
 
-	total_words = vocab.size();
+	int total_words = vocab.size();
+	int total_docs = data_info.at(total_cat).at("Docs");
 
 	//Calculaltes the probability of the word for each category
 	for(auto const& map_o : cat_vocab) {
@@ -101,15 +115,17 @@ void ProcessData(const std::map<std::string, std::ostringstream>& data,
 		//map_o.second is the map of word counts
 		double cat_total_words = 
 					cat_vocab[map_o.first][total_category_word_count];
-		double cat_total_docs = 
-					cat_vocab[map_o.first][total_category_doc_count];
-		cat_doc_count[map_o.first] = cat_total_docs;
+		int cat_total_docs = data_info.at(map_o.first).at("Docs");
+		processed_data_info[map_o.first]["Doc_p"] = (double)cat_total_docs / (double)total_docs;
+		//std::cout << cat_total_docs << "/" << total_docs << " = "<< cat_doc_count[map_o.first] << std::endl;
 
 		for(auto const& map_i : map_o.second) {
 			//map_i.first is the word string
 			//map_i.second is the word count for the category
-
-			processed_data[map_i.first][map_o.first] =
+			// std::cout << "(" << map_i.second << "+" << 1;
+			// std::cout << ") / (" << cat_total_words << "+" << total_words << ")"
+			// 			<< std::endl;
+			processed_data[map_o.first][map_i.first] =
 						((double)map_i.second + (double)1) /
 						(cat_total_words + (double)total_words);
 		}
@@ -161,42 +177,40 @@ void ReadTeFile(std::string filename,
 	}
 }
 
-void AnalyzeData(const std::map<std::string, std::map<std::string, double>>&
-				 processed_data,
-				 const std::map<std::string, std::vector<std::string>>& data,
-				 const std::map<std::string, int>& cat_doc_count) {
+void AnalyzeData(const std::map<std::string, std::map<std::string, double>>& processed_data,
+				 const std::map<std::string, std::map<std::string, double>>& processed_data_info,
+				 const std::map<std::string, std::map<std::string, int>>& data_info,
+				 const std::map<std::string, std::vector<std::string>>& data) {
 
 	int total(0);
 	int correct(0);
 	for(auto const& map : data) {
 		for(auto const& line : map.second) {
-			std::istringstream iss(line);
-			std::string word;
-			int count(0);
 			std::map<std::string, double> probability_classification;
+			for(auto const& map_d : processed_data){
+				std::istringstream iss(line);
+				std::string word;
+				int count(0);
+				double w_p(0.0);
 
-			auto start = std::chrono::high_resolution_clock::now();
-			while(iss >> word) {
-				if(count == 0) {
-					count++;
-					continue;
-				}
-				for(auto const& map_p : processed_data) {
-					if(!(map_p.second.find(word) == map_p.second.end())) {
-						double w_p(map_p.second.at(word));
-						probability_classification[map.first] += std::log(w_p);
+				while(iss >> word) {
+					if(count == 0) {
+						count++;
+						continue;
+					}
+					if(!(map_d.second.find(word) == map_d.second.end())) {
+						w_p += std::log(map_d.second.at(word));
 					}
 				}
+				double c_p(processed_data_info.at(map_d.first).at("Doc_p"));
+				//std::cout << c_p << std::endl;
+				probability_classification[map_d.first] = std::log(c_p) + w_p;
 			}
 
-			for(auto const& map_d : cat_doc_count) {
-				double c_p(map_d.second);
-				probability_classification[map_d.first] += log(c_p);
-			}
-
-			std::pair<std::string, double> result("", 0.0);
+			std::pair<std::string, double> result("", 10000000.0);
 			for(auto const& map_r : probability_classification) {
-				if(result.second < map_r.second) {
+				//std::cout << result.second << " < " << map_r.second << std::endl;
+				if(result.second > map_r.second) {
 					result.first = map_r.first;
 					result.second = map_r.second;
 				}
@@ -210,7 +224,8 @@ void AnalyzeData(const std::map<std::string, std::map<std::string, double>>&
 
 	std::cout << "Total              : " << total << std::endl;
 	std::cout << "Correct            : " << correct << std::endl;
-	std::cout << "Accuracy           : " << (double)correct / (double)total << std::endl;
+	std::cout << "Accuracy           : " << (double)correct / (double)total 
+				<< "%" << std::endl;
 }
 
 
@@ -240,16 +255,17 @@ int main(int argc, char * argv[]){
 	}
 
 	std::map<std::string, std::ostringstream> tr_data;
+	std::map<std::string, std::map<std::string, int>> data_info;
 	std::map<std::string, int> vocab;
 	std::map<std::string, std::map<std::string, int>> cat_vocab;
 	std::map<std::string, std::map<std::string, double>> processed_data;
-	std::map<std::string, int> cat_doc_count;
+	std::map<std::string, std::map<std::string, double>> processed_data_info;
 
 	/**
 	 *	Read the training data in to a data type to easily process
 	 */
 	auto start = std::chrono::high_resolution_clock::now();
-	ReadTrFile(tr_filename, tr_data);
+	ReadTrFile(tr_filename, tr_data, data_info);
 	auto end = std::chrono::high_resolution_clock::now();
 	auto time_read1 = end - start;
 	std::cout << "Training Read Time : " <<
@@ -260,7 +276,7 @@ int main(int argc, char * argv[]){
 	 *	Process data out into a data type to easily manage
 	 */
 	start = std::chrono::high_resolution_clock::now();
-	ProcessData(tr_data, processed_data, cat_vocab, vocab, cat_doc_count);
+	ProcessData(tr_data, data_info, processed_data, processed_data_info, cat_vocab, vocab);
 	end = std::chrono::high_resolution_clock::now();
 	auto time_process = end - start;
 	std::cout << "Process Time       : " <<
@@ -283,7 +299,7 @@ int main(int argc, char * argv[]){
 	 *	Analyze the data based on the training data.
 	 */
 	start = std::chrono::high_resolution_clock::now();
-	AnalyzeData(processed_data, te_data, cat_doc_count);
+	AnalyzeData(processed_data, processed_data_info, data_info, te_data);
 	end = std::chrono::high_resolution_clock::now();
 	auto time_analyze = end - start;
 	std::cout << "Analyze Time       : " <<
