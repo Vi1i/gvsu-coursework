@@ -7,97 +7,66 @@ function customPageHeader(){?>
 include_once("header.php");
 ?>
 
+<!-- <link rel="stylesheet" href="view/css/styles.css"> -->
+
 <div class="container">
+    <div class="jumbotron">
+        <svg id="visulization" width="1000" height="500"
+	  		viewBox="0 0 1000 500"
+	  		preserveAspectRatio="xMidYMid meet">
+		</svg>
+        <script>
+        var svg = d3.select("#visulization"),
+            margin = {top: 20, right: 20, bottom: 30, left: 50},
+            width = +svg.attr("width") - margin.left - margin.right,
+            height = +svg.attr("height") - margin.top - margin.bottom,
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        <div class="jumbotron">
+        var parseTime = d3.timeParse("%m/%d/%Y");
+        var x = d3.scaleTime().rangeRound([0, width]);
+        var y = d3.scaleLinear().rangeRound([height, 0]);
+        var line = d3.line()
+            .x(function(d) { return x(d["Trans Date"]); })
+            .y(function(d) { return y(d.Amount); });
+        //console.log(csv);
+        d3.csv("/data/creditCard-mod.csv", function(d) {
+        	// This little block turns the data into d3 readable
+        	d["Trans Date"] = parseTime(d["Trans Date"]);
+        	d["Post Date"] = parseTime(d["Post Date"]);
+        	d.Amount = +d.Amount;
+        	return d;
+        }, function(error, data) {
+        	if (error) throw error;
 
-            <svg id="visualisation" width="1000" height="500"></svg>
-            <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-            <script>
-                function InitChart() {
-                    var data = [{
-                        "sale": "202",
-                        "year": "2000"
-                    }, {
-                        "sale": "215",
-                        "year": "2002"
-                    }, {
-                        "sale": "179",
-                        "year": "2004"
-                    }, {
-                        "sale": "199",
-                        "year": "2006"
-                    }, {
-                        "sale": "134",
-                        "year": "2008"
-                    }, {
-                        "sale": "176",
-                        "year": "2010"
-                    }];
-                    var data2 = [{
-                        "sale": "152",
-                        "year": "2000"
-                    }, {
-                        "sale": "189",
-                        "year": "2002"
-                    }, {
-                        "sale": "179",
-                        "year": "2004"
-                    }, {
-                        "sale": "199",
-                        "year": "2006"
-                    }, {
-                        "sale": "134",
-                        "year": "2008"
-                    }, {
-                        "sale": "176",
-                        "year": "2010"
-                    }];
-                    var vis = d3.select("#visualisation"),
-                        WIDTH = 1000,
-                        HEIGHT = 500,
-                        MARGINS = {
-                            top: 20,
-                            right: 20,
-                            bottom: 20,
-                            left: 50
-                        },
-                        xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2000, 2010]),
-                        yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([134, 215]),
-                        xAxis = d3.svg.axis()
-                        .scale(xScale),
-                        yAxis = d3.svg.axis()
-                        .scale(yScale)
-                        .orient("left");
-                    
-                    vis.append("svg:g")
-                        .attr("class", "x axis")
-                        .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
-                        .call(xAxis);
-                    vis.append("svg:g")
-                        .attr("class", "y axis")
-                        .attr("transform", "translate(" + (MARGINS.left) + ",0)")
-                        .call(yAxis);
-                    var lineGen = d3.svg.line()
-                        .x(function(d) {
-                            return xScale(d.year);
-                        })
-                        .y(function(d) {
-                            return yScale(d.sale);
-                        })
-                        // .interpolate("basis");
-                    vis.append('svg:path')
-                        .attr('d', lineGen(data))
-                        .attr('stroke', 'green')
-                        .attr('stroke-width', 2)
-                        .attr('fill', 'none');
-                    vis.append('svg:path')
-                        .attr('d', lineGen(data2))
-                        .attr('stroke', 'blue')
-                        .attr('stroke-width', 2)
-                        .attr('fill', 'none');
-                }
-                InitChart();
-            </script>
-        </div>
+        	x.domain(d3.extent(data, function(d) { return d["Trans Date"]; }));
+        	y.domain(d3.extent(data, function(d) { return d.Amount; }));
+
+        	g.append("g")
+        	    .attr("transform", "translate(0," + height + ")")
+        	    .call(d3.axisBottom(x))
+        	  .select(".domain")
+        	    .remove();
+
+        	g.append("g")
+        	    .call(d3.axisLeft(y))
+        	  .append("text")
+        	    .attr("fill", "#000")
+        	    .attr("transform", "rotate(-90)")
+        	    .attr("y", 6)
+        	    .attr("dy", "0.71em")
+        	    .attr("text-anchor", "end")
+        	    .text("Price ($)");
+
+        	g.append("path")
+        	    .datum(data)
+        	    .attr("fill", "none")
+        	    .attr("stroke", "steelblue")
+        	    .attr("stroke-linejoin", "round")
+        	    .attr("stroke-linecap", "round")
+        	    .attr("stroke-width", 1.5)
+        	    .attr("d", line);
+
+        });
+        </script>
     </div>
+</div>
