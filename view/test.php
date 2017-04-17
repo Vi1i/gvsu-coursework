@@ -27,25 +27,32 @@ include_once("header.php");
         var y = d3.scaleLinear().rangeRound([height, 0]);
         var line = d3.line()
             .x(function(d) { return x(d["Trans Date"]); })
-            .y(function(d) { return y(d.Amount); });
-        //console.log(csv);
+            .y(function(d) { return y(d.Total); });
+        var total = 0;
         d3.csv("/data/creditCard-mod.csv", function(d) {
         	// This little block turns the data into d3 readable
         	d["Trans Date"] = parseTime(d["Trans Date"]);
         	d["Post Date"] = parseTime(d["Post Date"]);
         	d.Amount = +d.Amount;
+        	total += d.Amount;
+        	d.Total = (+d.Amount) + total;
         	return d;
         }, function(error, data) {
         	if (error) throw error;
 
         	x.domain(d3.extent(data, function(d) { return d["Trans Date"]; }));
-        	y.domain(d3.extent(data, function(d) { return d.Amount; }));
+        	y.domain(d3.extent(data, function(d) { return d.Total; }));
 
         	g.append("g")
         	    .attr("transform", "translate(0," + height + ")")
         	    .call(d3.axisBottom(x))
         	  .select(".domain")
         	    .remove();
+
+        	g.append("g")
+        	    .attr('transform', 'translate(' + 0 + ', ' + y(0) + ')')
+        	    .call(d3.axisBottom(x).tickSizeInner(0).tickFormat("").tickSizeOuter(0))
+        	  .select(".domain")
 
         	g.append("g")
         	    .call(d3.axisLeft(y))
