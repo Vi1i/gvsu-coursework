@@ -9,4 +9,8 @@
 		function testAction(){
 			include_once("view/test.php");
 		}
+
+		function StaticAction(){
+			include_once("view/static.php");
+		}
 	}

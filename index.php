@@ -31,5 +31,6 @@ require_once('controller/IndexController.php');
 
 $router = new Router();
 $router->route('/^\/test$/','IndexController::testAction');
+$router->route('/^\/static$/','IndexController::StaticAction');
 $router->route('/^\/$/','IndexController::IndexAction');
 $router->execute($_SERVER['REQUEST_URI']);
