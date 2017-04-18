@@ -10,7 +10,11 @@
 			include_once("view/test.php");
 		}
 
-		function StaticAction(){
-			include_once("view/static.php");
+		function sCreditAction(){
+			include_once("view/sCredit.php");
+		}
+
+		function dCreditAction(){
+			include_once("view/dCredit.php");
 		}
 	}
