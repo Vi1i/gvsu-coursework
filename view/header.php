@@ -35,9 +35,9 @@ include_once("view/load.php");
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/static">Static Graph</a></li>
-            <li><a href="/test">Dynamic Graph</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="/sCredit">Static Credit</a></li>
+            <li><a href="/dCredit">Dynamic Credit</a></li>
+            <li><a href="/test">Test</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
