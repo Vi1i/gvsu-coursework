@@ -36,7 +36,7 @@ include_once("header.php");
             /* implementation heavily influenced by http://bl.ocks.org/1166403 */
             function showPopover (d) {
                 $(this).popover({
-                    title: d.name,
+                    title: d.,
                     placement: 'auto top',
                     container: 'body',
                     trigger: 'manual',
