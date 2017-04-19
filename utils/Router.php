@@ -27,14 +27,14 @@ class Router {
 
 	public function execute($uri) {
 		foreach ($this->routes as $pattern => $callback) {
-				if (preg_match($pattern, $uri, $params) === 1) {
-					if (is_string($callback) && strpos( $callback, '::' ) ) {
-						list( $controller, $method ) = explode( '::', $callback );
-						$callback = array( new $controller, $method );
-					}
-					array_shift($params);
-					return call_user_func_array($callback, array_values($params));
+			if (preg_match($pattern, $uri, $params) === 1) {
+				if (is_string($callback) && strpos( $callback, '::' ) ) {
+					list( $controller, $method ) = explode( '::', $callback );
+					$callback = array( new $controller, $method );
 				}
+				array_shift($params);
+				return call_user_func_array($callback, array_values($params));
+			}
 		}
 	}
 }

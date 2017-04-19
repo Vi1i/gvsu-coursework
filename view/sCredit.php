@@ -1,5 +1,5 @@
 <?php
-$PageTitle = "vFin";
+$PageTitle = "vFin->Test";
 
 function customPageHeader(){?>
   <!--Arbitrary HTML Tags-->
