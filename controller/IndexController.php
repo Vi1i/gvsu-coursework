@@ -17,4 +17,8 @@
 		function dCreditAction(){
 			include_once("view/dCredit.php");
 		}
+
+		function dPortfolioAction(){
+			include_once("view/dPortfolio.php");
+		}
 	}
