@@ -34,14 +34,19 @@ include_once("header.php");
             div.tooltip {
                 position: absolute;
                 text-align: center;
-                width: 60px;
-                height: 28px;
+                width: 70px;
+                height: 32px;
                 padding: 2px;
                 font: 12px sans-serif;
                 background: lightsteelblue;
                 border: 0px;
                 border-radius: 8px;
                 pointer-events: none;
+            }
+            .legend rect {
+              fill:white;
+              stroke:black;
+              opacity:0.8;
             }
         </style>
         <div id="graph" class="aGraph"></div>
@@ -52,7 +57,8 @@ include_once("header.php");
                 .style("opacity", 0);
 
             var parseTime = d3.timeParse("%d-%b-%y");
-            var formatTime = d3.timeFormat("%e %B");
+            var formatTime = d3.timeFormat("%e %b");
+            var formatCurrency = d3.format("$,.2f");
 
             var dep_balance = 0;
             var prev_balance = 0;
@@ -141,14 +147,18 @@ include_once("header.php");
 
                 var path = graph.append("svg:path")
                     .attr("class","path")
+                    .attr("id", "intrest_line")
                     .attr("stroke", "steelblue")
                     .attr("fill", "none")
+                    .attr("stroke-width", 2)
                     .attr("d", line_total(data));
                 // console.log(data);
 
                 graph.selectAll("dots")
                     .data(data)
                     .enter().append("circle")
+                        .attr("fill", "steelblue")
+                        .attr("class", "circle1")
                         .attr("r", 3)
                         .attr("cx", function(d) { return x(d.date); })
                         .attr("cy", function(d) { return y(d.balance); })
@@ -156,7 +166,7 @@ include_once("header.php");
                         div.transition()
                             .duration(200)
                             .style("opacity", .9);
-                        div.html(formatTime(d.date) + "<br/>" + d.balance)
+                        div.html(formatTime(d.date) + "<br/>" + formatCurrency(d.balance))
                             .style("left", (d3.event.pageX) + "px")
                             .style("top", (d3.event.pageY - 28) + "px");
                         })
@@ -165,42 +175,107 @@ include_once("header.php");
                             .duration(500)
                             .style("opacity", 0);
                         });
+
+                var path = graph.append("svg:path")
+                    .attr("class","path")
+                    .attr("id", "deposits_line")
+                    .attr("stroke", "#71D161")
+                    .attr("fill", "none")
+                    .attr("stroke-width", 1)
+                    .attr("d", line_deposit(data));
+
+
+                graph.selectAll("dots")
+                    .data(data)
+                    .enter()
+                    .filter(function(d) {
+                        if(d.type === "deposit") {
+                            return d;
+                        }
+                    })
+                    .append("circle")
+                        .attr("fill", "#71D161")
+                        .attr("class", "circle1")
+                        .attr("r", 3)
+                        .attr("cx", function(d) { return x(d.date); })
+                        .attr("cy", function(d) { return y(d.dBalance); })
+                    .on("mouseover", function(d) {
+                        div.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+                        div.html(formatTime(d.date) + "<br/>" + formatCurrency(d.dBalance))
+                            .style("left", (d3.event.pageX) + "px")
+                            .style("top", (d3.event.pageY - 28) + "px");
+                        })
+                            .on("mouseout", function(d) {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                        });
+
+                legend = graph.append("g")
+                    .attr("class", "legend")
+                    .attr("x", 65)
+                    .attr("y", 25)
+                    .attr("height", 100)
+                    .attr("width", 200);
+                
+                legend.append("rect")
+                    .attr("x", 65)
+                    .attr("y", 25)
+                    .attr("width", 200)
+                    .attr("height", 100);
+
+                legend.append("circle")
+                    .attr("class", "circle2")
+                    .attr("cx", 85)
+                    .attr("cy", 45)
+                    .attr("r", 10)
+                    .attr("stroke", "black")
+                    .attr("fill", "#71D161")
+                    .on("click", function() {
+                        var active = deposits_line.active ? false : true;
+                        var newOpacity = active ? 0 : 1;
+                        d3.select("#deposits_line").style("opacity", newOpacity);
+                        deposits_line.active = active;
+                    });
+
+                legend.append("text")
+                    .attr("x", 110)
+                    .attr("y", 50)
+                    .text("Contributions");
+
+                legend.append("circle")
+                    .attr("class", "circle2")
+                    .attr("cx", 85)
+                    .attr("cy", 85)
+                    .attr("r", 10)
+                    .attr("stroke", "black")
+                    .attr("fill", "steelblue")
+                    .on("click", function() {
+                        var active = intrest_line.active ? false : true;
+                        var newOpacity = active ? 0 : 1;
+                        d3.select("#intrest_line").style("opacity", newOpacity);
+                        intrest_line.active = active;
+                    });
+
+                legend.append("text")
+                    .attr("x", 110)
+                    .attr("y", 90)
+                    .text("Account Value");
+
+                d3.select("#cb1")
+                    .attr("x", 65);
                 d3.select("#cb1").on("change",update);
                 update();
 
                 function update() {
                     if(d3.select("#cb1").property("checked")){
-                        d3.selectAll("circle").attr("visibility", "visible")
+                        d3.selectAll(".circle1").attr("visibility", "visible")
                     } else {
-                        d3.selectAll("circle").attr("visibility", "hidden");
+                        d3.selectAll(".circle1").attr("visibility", "hidden");
                     }
                 }
-
-                var path = graph.append("svg:path")
-                    .attr("class","path")
-                    .attr("stroke", "steelblue")
-                    .attr("fill", "none")
-                    .attr("d", line_deposit(data));
-
-                // graph.selectAll("dots")
-                //     .data(data)
-                //     .enter().append("circle")
-                //         .attr("r", 2)
-                //         .attr("cx", function(d) { return x(d.date); })
-                //         .attr("cy", function(d) { return y(d.dBalance); })
-                //     .on("mouseover", function(d) {
-                //         div.transition()
-                //             .duration(200)
-                //             .style("opacity", .9);
-                //         div.html(formatTime(d.date) + "<br/>" + d.dBalance)
-                //             .style("left", (d3.event.pageX) + "px")
-                //             .style("top", (d3.event.pageY - 28) + "px");
-                //         })
-                //             .on("mouseout", function(d) {
-                //         div.transition()
-                //             .duration(500)
-                //             .style("opacity", 0);
-                //         });
             });
         </script>
     </div>
