@@ -45,7 +45,7 @@ include_once("header.php");
             }
         </style>
         <div id="graph" class="aGraph"></div>
-
+        <input type="checkbox" id="cb1" /> Show Data Points
         <script>
             var div = d3.select("body").append("div")
                 .attr("class", "tooltip")
@@ -71,7 +71,7 @@ include_once("header.php");
             }, function(error, data) {
                 if (error) throw error;
 
-                console.log(data);
+                //console.log(data);
 
                 // define dimensions of graph
                 var margins = {top: 20, left: 20, bottom: 30, right: 50};
@@ -139,29 +139,24 @@ include_once("header.php");
                     .attr('class', 'focus')
                     .style('display', 'none');
 
-                // var path = graph.append("svg:path1")
-                //     .attr("class","path1")
-                //     .attr("stroke", "steelblue")
-                //     .attr("fill", "none")
-                //     .attr("d", line_total(data));
-
                 var path = graph.append("svg:path")
                     .attr("class","path")
                     .attr("stroke", "steelblue")
                     .attr("fill", "none")
-                    .attr("d", line_deposit(data));
+                    .attr("d", line_total(data));
+                // console.log(data);
 
                 graph.selectAll("dots")
                     .data(data)
                     .enter().append("circle")
-                        .attr("r", 1)
+                        .attr("r", 3)
                         .attr("cx", function(d) { return x(d.date); })
-                        .attr("cy", function(d) { return y(d.dBalance); })
+                        .attr("cy", function(d) { return y(d.balance); })
                     .on("mouseover", function(d) {
                         div.transition()
                             .duration(200)
                             .style("opacity", .9);
-                        div.html(formatTime(d.date) + "<br/>" + d.dBalance)
+                        div.html(formatTime(d.date) + "<br/>" + d.balance)
                             .style("left", (d3.event.pageX) + "px")
                             .style("top", (d3.event.pageY - 28) + "px");
                         })
@@ -170,6 +165,42 @@ include_once("header.php");
                             .duration(500)
                             .style("opacity", 0);
                         });
+                d3.select("#cb1").on("change",update);
+                update();
+
+                function update() {
+                    if(d3.select("#cb1").property("checked")){
+                        d3.selectAll("circle").attr("visibility", "visible")
+                    } else {
+                        d3.selectAll("circle").attr("visibility", "hidden");
+                    }
+                }
+
+                var path = graph.append("svg:path")
+                    .attr("class","path")
+                    .attr("stroke", "steelblue")
+                    .attr("fill", "none")
+                    .attr("d", line_deposit(data));
+
+                // graph.selectAll("dots")
+                //     .data(data)
+                //     .enter().append("circle")
+                //         .attr("r", 2)
+                //         .attr("cx", function(d) { return x(d.date); })
+                //         .attr("cy", function(d) { return y(d.dBalance); })
+                //     .on("mouseover", function(d) {
+                //         div.transition()
+                //             .duration(200)
+                //             .style("opacity", .9);
+                //         div.html(formatTime(d.date) + "<br/>" + d.dBalance)
+                //             .style("left", (d3.event.pageX) + "px")
+                //             .style("top", (d3.event.pageY - 28) + "px");
+                //         })
+                //             .on("mouseout", function(d) {
+                //         div.transition()
+                //             .duration(500)
+                //             .style("opacity", 0);
+                //         });
             });
         </script>
     </div>
