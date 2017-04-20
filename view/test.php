@@ -7,6 +7,8 @@ function customPageHeader(){?>
 include_once("header.php");
 ?>
 
+
+<script src="https://d3js.org/d3-selection-multi.v0.4.min.js"></script>
 <div class="container">
     <div class="jumbotron">
         <style>
@@ -29,23 +31,29 @@ include_once("header.php");
             .x.axis path {
                 display: none;
             }
+            div.tooltip {
+                position: absolute;
+                text-align: center;
+                width: 60px;
+                height: 28px;
+                padding: 2px;
+                font: 12px sans-serif;
+                background: lightsteelblue;
+                border: 0px;
+                border-radius: 8px;
+                pointer-events: none;
+            }
         </style>
         <div id="graph" class="aGraph"></div>
 
         <script>
-            /* implementation heavily influenced by http://bl.ocks.org/1166403 */
-            function showPopover (d) {
-                $(this).popover({
-                    title: d.,
-                    placement: 'auto top',
-                    container: 'body',
-                    trigger: 'manual',
-                    html : true,
-                    content: function() { 
-                        return "Quarter: " + d.label + "<br/>Rounds: " + d3.format(",")(d.value ? d.value: d.y1 - d.y0); }
-                });
-                $(this).popover('show')
-            }
+            var div = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+            var parseTime = d3.timeParse("%d-%b-%y");
+            var formatTime = d3.timeFormat("%e %B");
+
             var dep_balance = 0;
             var prev_balance = 0;
             var data = d3.csv("/data/portfolio-mod.csv", function(d) {
@@ -127,21 +135,41 @@ include_once("header.php");
                         .attr("text-anchor", "end")
                         .text("Balance");
 
-                var path = graph.append("svg:path")
-                    .attr("class","path")
-                    .attr("clip-path", "url(#clip)")
-                    .attr("stroke", "steelblue")
-                    .attr("fill", "none")
-                    .attr("d", line_total(data));
+                const focus = graph.append('g')
+                    .attr('class', 'focus')
+                    .style('display', 'none');
+
+                // var path = graph.append("svg:path1")
+                //     .attr("class","path1")
+                //     .attr("stroke", "steelblue")
+                //     .attr("fill", "none")
+                //     .attr("d", line_total(data));
 
                 var path = graph.append("svg:path")
                     .attr("class","path")
-                    .attr("clip-path", "url(#clip)")
                     .attr("stroke", "steelblue")
                     .attr("fill", "none")
-                    .attr("d", line_deposit(data))
-                    .on("mouseover", function (d) { showPopover.call(this, d); })
-                    .on("mouseout",  function (d) { removePopovers(); });
+                    .attr("d", line_deposit(data));
+
+                graph.selectAll("dots")
+                    .data(data)
+                    .enter().append("circle")
+                        .attr("r", 1)
+                        .attr("cx", function(d) { return x(d.date); })
+                        .attr("cy", function(d) { return y(d.dBalance); })
+                    .on("mouseover", function(d) {
+                        div.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+                        div.html(formatTime(d.date) + "<br/>" + d.dBalance)
+                            .style("left", (d3.event.pageX) + "px")
+                            .style("top", (d3.event.pageY - 28) + "px");
+                        })
+                            .on("mouseout", function(d) {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                        });
             });
         </script>
     </div>
