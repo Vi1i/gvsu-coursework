@@ -1,29 +1,37 @@
+<!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Introduction to D3</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <link rel="stylesheet" href="../css/styles.css"/>
+    <link href="../css/prism.css" rel="stylesheet"/>
+  <title>D3 - Loading Data</title>
   </head>
   <body bgcolor=white>
+    <script src="../js/prism.js"></script>
     <table class="h_table">
       <tr>
         <th class="absorbing-column">
-          <img src="imgs/d3.svg" width="100%">
+          <img src="../imgs/d3.svg" width="100%">
         </th>
         <th>
-          <h1>Introduction to D3</h1>
-        </td>
+          <h1>D3 - Loading Data</h1>
+        </th>
       </tr>
     </table>
 
-    <p>This lab will cover the basic working of <a href="https://d3js.org/">D3</a> through the follwoing steps:</p>
-    <ol>
-      <li><a href="pages/overview_html.html">An overview of HTML</a>
-      <li><a href="pages/overview_js.html">An overview of JavaScript</a>
-      <li><a href="pages/overview_d3_loading.html">Adding data through D3</a>
-      <li><a href="pages/overview_d3_data_mod.html">Mdifying the data</a>
-      <li><a href="pages/overview_d3_basic_line.html">Creating a basic line graph with the data</a>
-      <li><a href="pages/overview_d3_multi_line.html">Multiple lines on the graph</a>
-    </ol>
+    <p>Now, D3 has many ways to load such data, from retrieving it through
+       database's, static files, or even hard coding, these make it easy to
+       use data with D3.
+    </p>
+    <p>D3 does offer API's to many of these functions, but for the used of this
+       we will use CSV formats, as it is always easy to find data in that
+       format.
+    </p>
 
+    <p>Below is the template we will be using to explain how to load data
+    </p>
+    <pre class="line-numbers" data-src="../examples/d3_load.html"></pre>
   </body>
 </html>
