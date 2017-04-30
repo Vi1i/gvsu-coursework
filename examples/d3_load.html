@@ -4,16 +4,41 @@
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 		<meta content="utf-8" http-equiv="encoding">
 
-		<link 
-			href="http://getbootstrap.com/dist/css/bootstrap.min.css"
+		<link href="http://getbootstrap.com/dist/css/bootstrap.min.css"
 			rel="stylesheet">
 		<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
 	</head>
 	<body>
 		<script>
-			d3.csv("/data/creditCard-mod.csv", function(d) {
+			// This is the file where the data we want is
+			var filename = "../data/creditCard-mod.csv";
+
+			// This calls the D3 function that will open a file that is a CSV
+			d3.csv(filename, function(d) {
+				// The function(d) makes an anonympus function that takes in an
+				// argument d.
+				// What is happening is that D3 reads line by line the CSV file,
+				// and after each line read in, passes the line to this
+				// function.
+
+				// This function only reads in the data, and passes it right
+				// back out, later, we will use this function to modify the
+				// data.
+
+				// The console.log() command, is very useful for debugging. This
+				// prints out to the console on the browser. Showing the console
+				// can vary on the browser, usually right clicking the web page
+				// will bring up a menu with inspect as an option. In the
+				// inspect page, there is a tab called console where the output
+				// is.
+				console.log(d);
 				return d;
 			}, function(error, data) {
+				// This anonymous funtion is the end of the read, variable error
+				// has data if D3.csv encoutnered an error. Variable data is the
+				// end result of reading in the csv file, so it contains all of
+				// returned d's from the previous anonmous function.
+				console.log(data);
 				if (error) throw error;
 
 				d3.select("body")
@@ -21,6 +46,7 @@
 					.enter()
 					.append("p")
 					.text(function(d) {
+						console.log(d);
 						return d["Trans Date"];
 					});
 			});
