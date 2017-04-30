@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="../css/styles.css"/>
     <link href="../css/prism.css" rel="stylesheet"/>
-  <title>D3 - Loading Data</title>
+  <title>D3 - Loading</title>
   </head>
   <body bgcolor=white>
     <script src="../js/prism.js"></script>
@@ -16,21 +16,73 @@
           <img src="../imgs/d3.svg" width="100%">
         </th>
         <th>
-          <h1>D3 - Loading Data</h1>
+          <h1>Loading CSV Data through D3</h1>
         </th>
       </tr>
     </table>
 
-    <p>Now, D3 has many ways to load such data, from retrieving it through
-       database's, static files, or even hard coding, these make it easy to
-       use data with D3.
+    <p>Now, it is time for us to take a look at a basic usage of D3, loading
+       data. This is a simple thing to do, but will lay the ground work for the
+       more difficult part of D3.
     </p>
-    <p>D3 does offer API's to many of these functions, but for the used of this
-       we will use CSV formats, as it is always easy to find data in that
-       format.
-    </p>
+    <p>This overview will include:</p>
+    <ol>
+      <li>Index Setup</li>
+      <li>Data Setup</li>
+      <li>Overview of Functions Used</li>
+    </ol>
 
-    <p>Below is the template we will be using to explain how to load data
+    <h2>Index Setup</h2>
+    <p>Once the permissions have been set, we need to create a file in which the
+       webserver will serve up. But to make things easy, we will directly copy
+       template into the file.
+    </p>
+    <pre class="line-numbers"><code class="language-bash">
+      cd ~/public_html
+      wget http://cis.gvsu.edu/~oboylela/D3-Lab/examples/d3_load.html
+      mv d3_load.html index.html
+      chmod 755 index.html
+    </code></pre>
+    
+    <h2>Data Setup</h2>
+    <p>The data required by <code>d3_load.html</code> is currently hosted at
+       <a href="../data/creditCard-mod.csv">here</a>. To properly use this data
+       with <code>d3_load.html</code>, we will need to make a slight
+       modification of <code>d3_laod.html</code>. To do this, open
+       <code>d3_load.html</code> with a text editor, and go to line 14:
+    </p>
+    <pre class="line-numbers"><code class="language-JavaScript">
+      var filename = "../data/creditCard-mod.csv";
+    </code></pre>
+    <p>And modify this line to:</p>
+    <pre class="line-numbers"><code class="language-JavaScript">
+      var filename = "creditCard-mod.csv";
+    </code></pre>
+    <p>Or to whatever you decided to name it, but make sure it is located in
+       <code class="language-bash">~/public_html</code>. Similiar to what we did
+       with the <code>indxe.html</code>, we need to modify the permissions so
+       that we can access it from our page.  To do this, execute these commands:
+    </p>
+    <pre class="line-numbers"><code class="language-bash">
+      cd ~/public_html
+      chmod 744 creditCard-mod.csv
+    </code></pre>
+    <p>The last part of the
+       <code class="language-bash">chmod 744 creditCard-mod.csv</code> needs to
+       be whatever the filename you chose when you downloaded the file.
+    </
+    <p>Now, if you followed the steps above properly, then going to
+       <code>cis.gvsu.edu/~USERNAME</code> should look like
+       <a href="../imgs/d3_load_example.png">this</a>. If it does not work, then
+       verify the permissions are correct, that the files exist where you
+       say it is, and that everything is correctly named.
+    </p>
+    
+    <h2>Overview of Functions Used</h2>
+    <p>Now, let us review the code and what is going on. The file itself has the
+       the detailed break down of what is happening. Of course, if you want a
+       more extensive break down of the functions, refere to D3's extensive API
+       documnets.
     </p>
     <pre class="line-numbers" data-src="../examples/d3_load.html"></pre>
   </body>

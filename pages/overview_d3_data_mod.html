@@ -1,29 +1,53 @@
+<!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Introduction to D3</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <link rel="stylesheet" href="../css/styles.css"/>
+    <link href="../css/prism.css" rel="stylesheet"/>
+  <title>D3 - Data Mod</title>
   </head>
   <body bgcolor=white>
+    <script src="../js/prism.js"></script>
     <table class="h_table">
       <tr>
         <th class="absorbing-column">
-          <img src="imgs/d3.svg" width="100%">
+          <img src="../imgs/d3.svg" width="100%">
         </th>
         <th>
-          <h1>Introduction to D3</h1>
-        </td>
+          <h1>Basic Data Modification in JavaScript</h1>
+        </th>
       </tr>
     </table>
 
-    <p>This lab will cover the basic working of <a href="https://d3js.org/">D3</a> through the follwoing steps:</p>
+    <p>On the last <a href="overview_d3_loading.html">page</a>, we covered basic
+       data laoding with D3 and CSV's. Now, we will modify that data as it is
+       read in.
+    </p>
+    <p>This will entail:</p>
     <ol>
-      <li><a href="pages/overview_html.html">An overview of HTML</a>
-      <li><a href="pages/overview_js.html">An overview of JavaScript</a>
-      <li><a href="pages/overview_d3_loading.html">Adding data through D3</a>
-      <li><a href="pages/overview_d3_data_mod.html">Mdifying the data</a>
-      <li><a href="pages/overview_d3_basic_line.html">Creating a basic line graph with the data</a>
-      <li><a href="pages/overview_d3_multi_line.html">Multiple lines on the graph</a>
+      <li>Knowing The Data You Are Reading In</li>
+      <li>Modifying The Data</li>
     </ol>
 
+    <h2>Knowing The Data You Are Reading In</h2>
+    <p>This is more theory than having anything to do with D3, but make sure you
+       know what you need to do with the data. The next thing, is dseeing how it
+       is read in, this can be done with a simple log to the console of the
+       browser. This is done in the examples.
+    </p>
+
+    <h2>Modifying the Data</h2>
+    <p>How you want to modify the data depends on the dataset, maybe normalize a
+       column, add a column based off other column data, or clean up some text.
+       In our example, we have all three! The date data in the CSV is a little
+       messy for my tastes, so I chnaged it to a cleaner date format. The
+       numerical data is "text", so I converted it to actual numbers. And,
+       the original data set didn't keep anytype of balance of the overall
+       account, so I added that in as "total". The changes are very minimal, and
+       the highlighted code below shows that.
+    </p>
+    <pre class="line-numbers" data-line="42-58" data-src="../examples/d3_data_mod.html"></pre>
   </body>
 </html>

@@ -1,29 +1,186 @@
+<!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Introduction to D3</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <link rel="stylesheet" href="../css/styles.css"/>
+    <link href="../css/prism.css" rel="stylesheet"/>
+    <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  <title>D3 - Line Graph</title>
   </head>
   <body bgcolor=white>
+    <script src="../js/prism.js"></script>
     <table class="h_table">
       <tr>
         <th class="absorbing-column">
-          <img src="imgs/d3.svg" width="100%">
+          <img src="../imgs/d3.svg" width="100%">
         </th>
         <th>
-          <h1>Introduction to D3</h1>
-        </td>
+          <h1>Basic Line Graph in D3</h1>
+        </th>
       </tr>
     </table>
 
-    <p>This lab will cover the basic working of <a href="https://d3js.org/">D3</a> through the follwoing steps:</p>
-    <ol>
-      <li><a href="pages/overview_html.html">An overview of HTML</a>
-      <li><a href="pages/overview_js.html">An overview of JavaScript</a>
-      <li><a href="pages/overview_d3_loading.html">Adding data through D3</a>
-      <li><a href="pages/overview_d3_data_mod.html">Mdifying the data</a>
-      <li><a href="pages/overview_d3_basic_line.html">Creating a basic line graph with the data</a>
-      <li><a href="pages/overview_d3_multi_line.html">Multiple lines on the graph</a>
-    </ol>
+    <p>The last step, taking what we learned, plus D3, and we will make a graph!
+    </p>
 
+    <h2>The code!</h2>
+    <p>The code is a rough extension of what we have already done, plus a little
+       more ground work. The code changes are highlighted.
+    </p>
+    <p>There are a handful of places data can be changed, and if you know HTML,
+       JavaScript, and CSS well, then there are many changes you can make!
+    </p>
+
+    <h3>15 - 19</h3>
+    <p>Now, lets take a look at the code posted below. This created the canvas
+       of our graph, in ohter words, all drawing of the graph, if done
+       correctly, should only be on this svg that we create. the
+       <code>viewBox</code> part, is setting the dimeneion of height to
+       <b>500</b> and width to <b>1000</b>.
+    </p>
+
+    <h3>21 - 34</h3>
+    <p>This is how we take the SVG we created above, and turn it into something
+       that D3 will recognize. The only things that can really be tweaked here
+       are the margins. the name <code>"#visualization"</code> needs to be the
+       <code>id</code> of the SVG we created.
+    </p>
+
+    <h3>43 - 54</h3>
+    <p>These three variables <code>x</code>, <code>y</code>, and
+       <code>line</code> are the backbone on how the data is set up for D3, and
+       ultimately the graph. <code>x</code> and <code>y</code> are how we set up
+       the range of the x and y axis on our graph. Notice how
+       <code>.scaleTime()</code> and <code>.scaleLinear()</code> are different?
+       This is because the x-axis data will be in date format, whereas the
+       y-axis data will be just a typical numerical value. Then, since the
+       x-axis is horizontal, we scale the data to the width of the graph and the
+       y-axis is scaled with the height of the graph. These scale funtions from
+       D3 can be changed to whatever data you might want to use.
+    </p>
+    <p>The <code>line</code> variable will be called when we are ready to plot,
+       down on line 189. It used this to look at a single object we pass it, and
+       assigns the values, in our case the transaction date and the current
+       total. The data can esily be changed by modifying what we return from the
+       object. In our case, we coould chnage <code>"Trans Date"</code> to
+       <code>"Post Date"</code>, but because of how I have my <code>x</code> set
+       up. I need it to be a date or to change the <code>x</code> variable
+       above. Same with the <code>y</code> in this case.
+    </p>
+
+    <h3>106 - 118</h3>
+    <p>These two calls on <code>x</code> and <code>y</code> are the same, except
+       we are getting the range of the respctive values. This doesn't change
+       much from data sets, except what you are returning. Once again, these
+       match the <code>x</code>,<code>y</code>, and <code>line</code> above, so
+       changes here need to reflect above.
+    </p>
+
+    <h3>120 - 133</h3>
+    <p>This is where the x-axis is added to the graph and drawn. There isn't
+       much in the below code to modify, but there is a lot on line <b>129</b>. This
+       can be changed for the tick size, how often a tick is diplayed, etc. An
+       active example on this same dataset in on line <b>145</b>.
+    </p>
+    <p>The D3 API documentation can give you the many modifiers you can make.
+    </p>
+
+    <h3>135 - 147</h3>
+    <p>This segment is specific to the type of graph I wanted to display.
+       Otherwise this is just another x-axis.
+    </p>
+
+    <h3>149 - 170</h3>
+    <p>This is where the y-axis is added to the graph and drawn. Other than this
+       being the y-axis, anyhting you would do here can be done to the x-axis
+       and vice-versa.
+    </p>
+
+    <h3>172 - 189</h3>
+    <p>Now, this is the final step in creating the graph. We actually draw the
+       data! There are many functions you can add onto this, though, they are
+       all on the line call we made earlier. Mostly just to interpret the line
+       more than just plotting the points.
+    </p>
+
+    <pre class="line-numbers"
+         data-line="15-19,21-34,43-54,106-118,120-133,135-147,149-170,172-189" 
+         data-src="../examples/d3_basic_line.html"></pre>
+
+
+    <h2>The Graph!</h2>
+    <svg id="visulization" width="1000" height="500"
+      viewBox="0 0 1000 500">
+    </svg>
+      <script>
+        var svg = d3.select("#visulization"),
+          margin = {top: 20, right: 20, bottom: 30, left: 50},
+          width = +svg.attr("width") - margin.left - margin.right,
+          height = +svg.attr("height") - margin.top - margin.bottom,
+          graph = svg.append("g").attr("transform", "translate(" + 
+            margin.left + "," + margin.top + ")");
+
+        var filename = "../data/creditCard-mod.csv";
+
+        var parseTime = d3.timeParse("%m/%d/%Y");
+
+        var x = d3.scaleTime().rangeRound([0, width]);
+        var y = d3.scaleLinear().rangeRound([height, 0]);
+        var line = d3.line()
+          .x(function(d) { return x(d["Trans Date"]); })
+          .y(function(d) { return y(d.Total); });
+
+        var total = 0;
+        d3.csv(filename, function(d) {
+          d["Trans Date"] = parseTime(d["Trans Date"]);
+          d["Post Date"] = parseTime(d["Post Date"]);
+          d.Amount = +d.Amount;
+          total += d.Amount;
+          d.Total = total;
+          return d;
+        }, function(error, data) {
+
+          if (error) throw error;
+
+          x.domain(d3.extent(data, function(d) {
+            return d["Trans Date"];
+          }));
+
+          y.domain(d3.extent(data, function(d) {
+            return d.Total;
+          }));
+
+          graph.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x))
+            .select(".domain")
+            .remove();
+
+          graph.append("g")
+            .attr('transform', 'translate(' + 0 + ', ' + y(0) + ')')
+            .call(d3.axisBottom(x).tickSizeInner(0).tickFormat("")
+              .tickSizeOuter(0))
+            .select(".domain")
+
+          graph.append("g")
+            .call(d3.axisLeft(y))
+            .append("text")
+            .attr("fill", "#000")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "end")
+            .text("Price ($)");
+
+          graph.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-width", 1.5)
+            .attr("d", line);
+        });
+      </script>
   </body>
 </html>
