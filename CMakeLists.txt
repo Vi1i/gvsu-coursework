@@ -18,10 +18,6 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
 )
 
-find_package(OpenMP)
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-
 # Note this is the 'bad' way of doing this, but the recommended alternative is to keep a list of *all* source files =/
 file(GLOB_RECURSE nbdc_SRC "${CMAKE_SOURCE_DIR}/src/*.cpp")
 include_directories(${CMAKE_SOURCE_DIR}/src)

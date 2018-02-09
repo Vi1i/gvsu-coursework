@@ -8,8 +8,6 @@
 #include <algorithm>
 #include <iomanip>
 
-#include <omp.h>
-
 #include "nbdc_config.hpp"
 #include "Func/func.hpp"
 
