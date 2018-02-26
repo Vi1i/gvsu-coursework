@@ -1,7 +1,7 @@
-#CIS 616: Data Security and Privacy with Dr. Vijay Bhuse
-##Tentative Schedule
+# CIS 616: Data Security and Privacy with Dr. Vijay Bhuse
+## Tentative Schedule
 | Week | Date | Topics | Due |
-| :---: | :---: | :--- | :--- |
+| :---: | :----: | :------- | :--- |
 | 1 | Jan 08 | Syllabus, Introduction (Ch 1) | - |
 | 2 | Jan 15 | MLK, Jr. Day Recess | - |
 | 3 | Jan 22 | TCP/IP, LAN, WAN, Malicious Software (Ch 6), Case Study: The Home Depot Data Breach | CS1(1) |
@@ -19,7 +19,7 @@
 | 15 | Apr 16 | Paper Presentations | Paper draft 2(3) |
 | 16 | TBD | Test 3 (20) | Paper(20) |
 
-##Structure
+## Structure
 * docs/ Class documents
 * cs/   Case study critiques
 * hw/   Homeworks
