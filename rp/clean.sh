@@ -1,2 +1,2 @@
 #!/bin/bash
-rm -f *.{aux,dvi,log,pdf}
+rm -f *.{aux,dvi,log,pdf,bbl,blg}
