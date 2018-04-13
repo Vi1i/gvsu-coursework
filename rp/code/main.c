@@ -8,12 +8,15 @@
 #include <netinet/ip.h>         // iphdr struct
 #include <net/ethernet.h>       // ether_header
 
+#include <test.h>
+
 void process_packet(unsigned char * buffer, size_t size);
 void print_tcp_packet(unsigned char * buffer, size_t size);
 void print_udp_packet(unsigned char * buffer, size_t size);
 void print_other_packet(unsigned char * buffer, size_t size);
 
 int main(int argc, char * argv[]) {
+    printf("%d", TEST);
     size_t saddr_size;
     size_t data_size;
 
