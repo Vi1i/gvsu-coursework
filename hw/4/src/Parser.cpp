@@ -14,24 +14,32 @@ namespace chow {
                 return this->Graph();
                 break;
             default:
+#ifdef DEBUG
                 std::cerr << "Bad Start" << std::endl;
+#endif
                 return false;
         }
     }
 
     bool Parser::Graph() {
+#ifdef DEBUG
         std::cout << "Graph()" << std::endl;
+#endif
         Token id = tokens.front();
         tokens.erase(tokens.begin());
         Token lbrace = tokens.front();
         tokens.erase(tokens.begin());
 
         if(id.type != TokenType::ID) {
+#ifdef DEBUG
             std::cerr << "BAD GRAPH ID" << std::endl;
+#endif
             return false;
         }
         if(lbrace.type != TokenType::LBRACE) {
+#ifdef DEBUG
             std::cerr << "BAD GRAPH LBRACE" << std::endl;
+#endif
             return false;
         }
 
@@ -39,14 +47,20 @@ namespace chow {
     }
 
     bool Parser::StmtList() {
+#ifdef DEBUG
         std::cout << "StmtList()" << std::endl;
+#endif
         Token first = tokens.front();
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
+#endif
         this->Stmt();
 
         first = tokens.front();
+#ifdef DEBUG
         std::cout << "StmtList()" << std::endl;
         std::cout << "\t" << first << std::endl;
+#endif
         if(first.type != TokenType::SEMICOLON) {
             if(first.type == TokenType::RBRACE) {
                 return true;
@@ -59,11 +73,15 @@ namespace chow {
     }
 
     bool Parser::Stmt() {
+#ifdef DEBUG
         std::cout << "Stmt()" << std::endl;
+#endif
         Token first = tokens[0];
         Token second = tokens[1];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
+#endif
 
         switch(first.type) {
             case TokenType::NODE:
@@ -93,9 +111,13 @@ namespace chow {
     }
 
     bool Parser::Comment() {
+#ifdef DEBUG
         std::cout << "Comment()" << std::endl;
+#endif
         Token first = tokens[0];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
+#endif
 
         if(tokens.front().type == TokenType::ECOMMENT) {
             tokens.erase(tokens.begin());
@@ -113,41 +135,55 @@ namespace chow {
     }
 
     bool Parser::NodeStmt() {
+#ifdef DEBUG
         std::cout << "NodeStmt()" << std::endl;
+#endif
         Token first = tokens[0];
         tokens.erase(tokens.begin());
         Token second = tokens[1];
-
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
+#endif
 
         bool rc_NodeID = this->NodeID();
         bool rc_AttrList = this->AttrList();
 
+#ifdef DEBUG
         std::cout << "NodeStmt()" << std::endl;
+#endif
         first = tokens[0];
         second = tokens[1];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
-
+#endif
 
         return rc_NodeID | rc_AttrList;
     }
 
     bool Parser::EdgeStmt() {
+#ifdef DEBUG
         std::cout << "EdgeStmt()" << std::endl;
+#endif
         Token first = tokens[0];
         Token second = tokens[1];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
+#endif
 
         bool rc_NodeID = this->NodeID();
 
+#ifdef DEBUG
         std::cout << "EdgeStmt()" << std::endl;
+#endif
         first = tokens[0];
         second = tokens[1];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
+#endif
 
         bool rc_EdgeRhs(false);
         bool rc_AttrList(false);
@@ -163,25 +199,32 @@ namespace chow {
             }
         }
 
+#ifdef DEBUG
         std::cout << "EdgeStmt()" << std::endl;
+#endif
         first = tokens[0];
         second = tokens[1];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
-
+#endif
 
         return rc_NodeID | rc_EdgeRhs | rc_AttrList | endStmt;
     }
     bool Parser::AttrStmt() { return false; }
 
     bool Parser::EdgeRhs() {
+#ifdef DEBUG
         std::cout << "EdgeRhs()" << std::endl;
+#endif
         Token first = tokens[0];
         Token second = tokens[1];
         Token third = tokens[2];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
         std::cout << "\t" << third << std::endl;
+#endif
 
         if(first.type == TokenType::EDGEOP) {
             if(second.type == TokenType::ID) {
@@ -198,11 +241,15 @@ namespace chow {
     }
 
     bool Parser::AttrList() {
+#ifdef DEBUG
         std::cout << "AttrList()" << std::endl;
+#endif
         Token first = tokens[0];
         Token second = tokens[1];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
+#endif
 
         if(first.type == TokenType::LBRACK) {
             while(tokens.front().type != TokenType::RBRACK) {
@@ -212,11 +259,15 @@ namespace chow {
                     return false;
                 }
 
+#ifdef DEBUG
                 std::cout << "AttrList()" << std::endl;
+#endif
                 first = tokens[0];
                 second = tokens[1];
+#ifdef DEBUG
                 std::cout << "\t" << first << std::endl;
                 std::cout << "\t" << second << std::endl;
+#endif
             }
             tokens.erase(tokens.begin());
             return true;
@@ -225,15 +276,19 @@ namespace chow {
         return false;
     }
     bool Parser::AList() {
+#ifdef DEBUG
         std::cout << "AList()" << std::endl;
+#endif
         Token first = tokens[0];
         Token second = tokens[1];
         Token third = tokens[2];
         Token fourth = tokens[3];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
         std::cout << "\t" << third << std::endl;
         std::cout << "\t" << fourth << std::endl;
+#endif
 
         if(first.type == TokenType::ID && second.type == TokenType::EQUALS
             && third.type == TokenType::ID) {
@@ -257,11 +312,15 @@ namespace chow {
     }
 
     bool Parser::NodeID() {
+#ifdef DEBUG
         std::cout << "NodeID()" << std::endl;
+#endif
         Token first = tokens[0];
         Token second = tokens[1];
+#ifdef DEBUG
         std::cout << "\t" << first << std::endl;
         std::cout << "\t" << second << std::endl;
+#endif
 
         if(first.type != TokenType::COLON) {
             return false;

@@ -10,7 +10,8 @@ CFLAGS = -g -std=c++11 -Werror -Wall -Wextra -Wimplicit-fallthrough=0
 INCLUDES = -I./include
 LFLAGS =
 LIBS =
-SRCS = LexerStream.cpp Lexer.cpp Parser.cpp main.cpp
+SRCS = src/LexerStream.cpp src/Lexer.cpp src/Parser.cpp src/main.cpp \
+	   src/Node/Graph.cpp src/Node/ID.cpp src/Node/StmtList.cpp src/Node/Stmt.cpp
 OBJS = $(SRCS:.c=.o)
 	MAIN = chow
 
@@ -21,6 +22,9 @@ all:    $(MAIN)
 
 $(MAIN): $(OBJS) 
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+debug: $(OBJS) 
+	$(CC) $(CFLAGS) -DDEBUG $(INCLUDES) -o $(MAIN)-debug $(OBJS) $(LFLAGS) $(LIBS)
 
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@

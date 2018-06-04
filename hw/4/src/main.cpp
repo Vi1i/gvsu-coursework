@@ -33,9 +33,12 @@ int main(int argc, char * argv[]) {
     parser.Print();
     if(!parser.Parse()) {
         std::cerr << "Parsing failed!" << std::endl;
+        return EXIT_FAILURE;
     }else{
         std::cout << "Parsing passed!" << std::endl;
     }
+
+    //pTokens = arser.GetParsedTokens();
 
     return EXIT_SUCCESS;
 }
