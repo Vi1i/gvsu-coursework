@@ -1,13 +1,15 @@
-all: dot
-
-dot.tab.c dot.tab.h:	dot.y
-	bison -v -d dot.y
-
-lex.yy.c: dot.l dot.tab.h
-	flex dot.l
-
-dot: lex.yy.c dot.tab.c dot.tab.h
-	g++ -lfl -std=c++11 -o chow dot.tab.c lex.yy.c
+all: chow
 
 clean:
-	rm chow dot.tab.c lex.yy.c dot.tab.h dot.output
+	rm parser.cpp parser.hpp chow tokens.cpp
+
+parser.cpp: parser.y
+	bison -d -o $@ $^
+
+parser.hpp: parser.cpp
+
+tokens.cpp: tokens.l parser.hpp
+	lex -o $@ $^
+
+chow: parser.cpp main.cpp tokens.cpp
+	g++ -std=c++11 -o $@ *.cpp
