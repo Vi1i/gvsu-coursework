@@ -1,0 +1,4 @@
+// the configured options and settings for dns-aap
+#define nbdc_VERSION_MAJOR @nbdc_VERSION_MAJOR@
+#define nbdc_VERSION_MINOR @nbdc_VERSION_MINOR@
+#define nbdc_VERSION_PATCH @nbdc_VERSION_PATCH@
