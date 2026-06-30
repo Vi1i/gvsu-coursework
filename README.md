@@ -2,8 +2,20 @@
 
 Coursework from my time in the Computer Information Systems program at
 Grand Valley State University (2014–2018). Each subdirectory is the
-original repo for that course, imported with full git history preserved
-via `git subtree`.
+original repo for that course or project, imported with full git history
+preserved via `git subtree`.
+
+## Quick index
+
+- [Single-project classes](#single-project-classes) — CIS 343, 451, 452, 457, 458, 467, 616, 675
+- [CIS 677 — High-performance Computing](#cis-677--high-performance-computing)
+- [CIS 678 — Machine Learning](#cis-678--machine-learning)
+- [CIS 671 — Information Visualization](#cis-671--information-visualization)
+- [Independent study — Leidig (modeling/sim)](#independent-study--leidig-modelingsim)
+
+---
+
+## Single-project classes
 
 | Course | Title | Professor | Term | Directory |
 |---|---|---|---|---|
@@ -15,7 +27,6 @@ via `git subtree`.
 | CIS 467 | Computer Science Project (Senior Capstone — Automata topic) | — | Fall 2016 | [cis467/](cis467) |
 | CIS 616 | Data Security and Privacy | Bhuse | Winter 2018 | [cis616/](cis616) |
 | CIS 675 | Compiler Construction | — | Summer 2018 | [cis675/](cis675) |
-| CIS 677 | High-performance Computing | Wolffe | Fall 2016 | [cis677/](cis677) (partial — see note) |
 
 > **Note on `cis675/`:** Imported from the `hw6` branch of the original repo,
 > which was a strict superset of `master` and `bison` and contained the most
@@ -23,7 +34,39 @@ via `git subtree`.
 > graph connectedness). A `python` branch with a divergent HW5 attempt was
 > left behind.
 
-> **Note on `cis677/`:** Only the introductory MPI homework lives here. The
-> larger CIS 677 projects (Sobel edge detection, Floyd–Warshall, CUDA dot
-> product, Laplacian diffusion, k-queens) are kept as standalone repos under
-> [Vi1i](https://github.com/Vi1i?tab=repositories).
+---
+
+## CIS 677 — High-performance Computing
+Wolffe · Fall 2016
+
+| Project | Tech | Description |
+|---|---|---|
+| [`cis677/mpiHomework/`](cis677/mpiHomework) | C++ MPI | First MPI homework — stub |
+| [`cis677/sobel/`](cis677/sobel) | C++ threads | Threaded Sobel + threshold edge detection |
+
+---
+
+## CIS 678 — Machine Learning
+Wolffe / Leidig · Spring 2017
+
+_(entries added as projects are imported)_
+
+---
+
+## CIS 671 — Information Visualization
+Leidig · Spring 2017
+
+_(entries added as projects are imported)_
+
+---
+
+## Independent study — Leidig (modeling/sim)
+Fall 2016
+
+_(entries added as projects are imported)_
+
+---
+
+> **Other academic work, kept as standalone repos:**
+> - [`Vi1i/dnsaa`](https://github.com/Vi1i/dnsaa) — DNS research with Dr. Kalafut
+> - [`Vi1i/cruthu`](https://github.com/Vi1i/cruthu) — thesis (world generation framework)
