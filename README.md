@@ -58,6 +58,7 @@ Wolffe / Leidig · Spring 2017
 | [`cis678/nbdc/`](cis678/nbdc) | C++ | Naïve Bayes Document Classifier |
 | [`cis678/decisiontree/`](cis678/decisiontree) | C++ | Decision tree learner |
 | [`cis678/hcr_nn/`](cis678/hcr_nn) | C++ | Handwritten Character Recognition NN |
+| [`cis678/fouel/`](cis678/fouel) | Python | Function Optimization using Evolutionary Learning |
 
 ---
 
