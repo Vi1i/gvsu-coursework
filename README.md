@@ -76,7 +76,9 @@ Leidig · Spring 2017
 ## Independent study — Leidig (modeling/sim)
 Fall 2016
 
-_(entries added as projects are imported)_
+| Project | Tech | Description |
+|---|---|---|
+| [`indep_study_leidig/miSim/`](indep_study_leidig/miSim) | C++ | Michigan TB epidemic simulation |
 
 ---
 
