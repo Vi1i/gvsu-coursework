@@ -59,6 +59,7 @@ Wolffe / Leidig · Spring 2017
 | [`cis678/decisiontree/`](cis678/decisiontree) | C++ | Decision tree learner |
 | [`cis678/hcr_nn/`](cis678/hcr_nn) | C++ | Handwritten Character Recognition NN |
 | [`cis678/fouel/`](cis678/fouel) | Python | Function Optimization using Evolutionary Learning |
+| [`cis678/flesch_index/`](cis678/flesch_index) | C++ | Flesch readability index |
 
 ---
 
