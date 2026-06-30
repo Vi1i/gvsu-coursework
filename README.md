@@ -43,6 +43,7 @@ Wolffe · Fall 2016
 |---|---|---|
 | [`cis677/mpiHomework/`](cis677/mpiHomework) | C++ MPI | First MPI homework — stub |
 | [`cis677/sobel/`](cis677/sobel) | C++ threads | Threaded Sobel + threshold edge detection |
+| [`cis677/floyd_warshall/`](cis677/floyd_warshall) | OpenMPI | Floyd's all-pairs shortest path |
 
 ---
 
