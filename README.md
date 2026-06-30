@@ -7,4 +7,4 @@ via `git subtree`.
 
 | Course | Title | Professor | Term | Directory |
 |---|---|---|---|---|
-| _entries added as each course is imported_ | | | | |
+| CIS 343 | Structure of Programming Languages | Nandigam | Fall 2014 | [cis343/](cis343) |
