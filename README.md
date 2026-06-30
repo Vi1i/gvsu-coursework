@@ -53,7 +53,9 @@ Wolffe · Fall 2016
 ## CIS 678 — Machine Learning
 Wolffe / Leidig · Spring 2017
 
-_(entries added as projects are imported)_
+| Project | Tech | Description |
+|---|---|---|
+| [`cis678/nbdc/`](cis678/nbdc) | C++ | Naïve Bayes Document Classifier |
 
 ---
 
