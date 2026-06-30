@@ -1,0 +1,82 @@
+import java.io.*;
+import java.net.*;
+
+class tcpclient {
+
+	public static void main(String args[]) throws Exception {
+		Socket clientSocket = new Socket("127.0.0.1", 9876);
+		// clientSend send = new clientSend(clientSocket);
+		// Thread sendThread = new Thread(send);
+		// sendThread.start();
+
+		// clientRecieve recieve = new clientRecieve(clientSocket);
+		// Thread recieveThread = new Thread(recieve);
+		// recieveThread.start();
+		DataOutputStream outToServer = new DataOutputStream(
+				clientSocket.getOutputStream());
+		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(
+				clientSocket.getInputStream()));
+		BufferedReader inFromUser = new BufferedReader(new InputStreamReader(
+				System.in));
+		String message;
+		String serverMessage;
+		while (true) {
+			System.out.println("Enter a message: ");
+			message = inFromUser.readLine();
+			if (message == "exit") {
+				break;
+			}
+			outToServer.writeBytes(message);
+			serverMessage = inFromServer.readLine();
+			
+			System.out.println("Got: "+serverMessage)
+		}
+		clientSocket.close();
+	}
+}
+
+class clientSend implements Runnable {
+	String sendMessage;
+	Socket clientSocket;
+	BufferedReader userInput;
+	DataOutputStream outToServer;
+
+	public clientSend(Socket clientSocket) {
+		this.clientSocket = clientSocket;
+	}
+
+	public void run() {
+		userInput = new BufferedReader(new InputStreamReader(System.in));
+		outToServer = new DataOutputStream(clientSocket.getOutputStream());
+		System.out.println("enter message to send:");
+		sendMessage = userInput.readLine();
+		outToServer.writeBytes("sendMessage");
+	}
+}
+
+class clientRecieve implements Runnable {
+	String message;
+	Socket clientSocket;
+	BufferedReader inFromServer;
+
+	public clientRecieve(Socket clientSocket) {
+		this.clientSocket = clientSocket;
+	}
+
+	public void run() {
+		try {
+			inFromServer = new BufferedReader(new InputStreamReader(
+					clientSocket.getInputStream()));
+			message = inFromServer.readLine();
+		} catch (IOException e) {
+			System.out.println("error getting server message, closing program");
+			System.exit(1);
+		}
+
+		if (message != "") {
+			System.out.println("Got from server:" + message);
+		}
+
+	}
+
+}

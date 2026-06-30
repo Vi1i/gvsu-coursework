@@ -1,0 +1,121 @@
+import java.io.*;
+import java.net.*;
+import java.util.ArrayList;
+
+class tcpserver {
+	// private ArrayList<chatConversation> currentChats;
+
+	public static void main(String argv[]) throws Exception {
+		ServerSocket listenSocket = new ServerSocket(9876);
+
+		/*Socket connectionSocket = listenSocket.accept();
+		BufferedReader inFromClient = new BufferedReader(new InputStreamReader(
+				connectionSocket.getInputStream()));
+		DataOutputStream outToClient = new DataOutputStream(
+				connectionSocket.getOutputStream());
+		String clientMessage = inFromClient.readLine();
+		System.out.println("The client said " + clientMessage);
+		outToClient.writeBytes(clientMessage + '\n');
+		connectionSocket.close();*/
+
+		Socket connectionSocket = listenSocket.accept();
+		recieveFromClient recieve = new recieveFromClient(connectionSocket);
+		SendToClient send = new SendToClient(connectionSocket);
+
+		Thread recieveThread = new Thread(recieve);
+		Thread sendThread = new Thread(send);
+		recieveThread.start();
+		sendThread.start();
+	}
+}
+
+class recieveFromClient implements Runnable {
+	Socket connectionSocket;
+	String inMessage;
+
+	public recieveFromClient(Socket connectionSocket) {
+		this.connectionSocket = connectionSocket;
+	}
+
+	public void run() {
+		BufferedReader inFromClient = new BufferedReader(new InputStreamReader(
+				connectionSocket.getInputStream()));
+		while(true){
+			inMessage = inFromClient.readLine();
+			
+			if(inMessage!= null){
+				if(inMessage =="Exit"){
+					System.out.println("Client left");
+					break;
+				}
+				System.out.println("Got from client" + inMessage);
+			}
+		}
+	}
+}
+
+class SendToClient implements Runnable {
+	Socket connectionSocket;
+	DataOutputStream outToClient;
+
+	public SendToClient(Socket connectionSocket) {
+		this.connectionSocket = connectionSocket;
+	}
+
+	public void run() {
+		outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+		outToClient.writeBytes("Test");
+	}
+}
+
+class chatConversation {
+	private ArrayList<String> members;
+	private String adminIp;
+	private String chatName;
+
+	public chatConversation(String adminIp) {
+		members = new ArrayList<String>();
+		this.adminIp = adminIp;
+		members.add(adminIp);
+	}
+
+	public ArrayList<String> getMembers() {
+		return members;
+	}
+
+	public String getName() {
+		return chatName;
+	}
+
+	public int addMember(String newMember) {
+		int sameCount = 0;
+		for (String s : members) {
+			if (s == newMember) {
+				sameCount++;
+			}
+		}
+		if (sameCount == 0) {
+			members.add(newMember);
+			return 0;
+		}
+		return -1;
+	}
+
+	public int removeMember(String removeMember, String Requester) {
+		if (Requester != adminIp) {
+			return -2;
+		}
+		int sameCount = 0;
+		for (String s : members) {
+			if (s == removeMember) {
+				sameCount++;
+			}
+		}
+		if (sameCount > 1) {
+			members.remove(removeMember);
+			return 0;
+		}
+		return -1;
+	}
+
+}

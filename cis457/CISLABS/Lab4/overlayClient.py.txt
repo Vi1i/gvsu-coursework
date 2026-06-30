@@ -1,0 +1,82 @@
+import threading
+from scapy.all import *
+import codecs
+
+def getDefaultIP( ownIP ):
+	#This loops through host files and checks to see if the virtual ip
+    #address is the one specified, then returns the UDP physical IP
+    #address for sending.
+	for i in range ( 1, 6 ):
+		try:
+			hostName = "host-10" + str( i ) + ".txt"
+			with codecs.open( hostName, 'r', encoding = 'utf8' ) as f:
+   				text1 = f.readline( )
+				text2 = f.readline( )
+			#print ( text1[ 8 :- 1 ] )
+			#print ( text2[ 15 :- 1 ] )
+			if( text1[ 8:-1 ] == ownIP ):
+				return ( text2[ 15 :-1 ] )
+		except:
+			pass
+			#print( "NoFile with name: " + hostName )
+	print( "No IP address was found, Closing program" )
+	sys.exit( )
+	
+#Client thread for sending
+def sendThread( ):
+	 
+	#Creates the "data" packet, taking the IP address and message and
+    #puts it into a packet
+	sendIP = raw_input( 'Enter an IP Address to send to: \n' )
+	sendMessage = raw_input( 'Enter a message to send: \n' )
+	sendPacket = IP( dst = sendIP ) / UDP( ) / sendMessage
+	
+	#This converts our entire packet into a hex string
+	rawData = str( sendPacket )
+	
+	#TODO: Check the config file to determine what IP to send to based
+    #on the user entered IP
+	overlayIP = "127.0.0.1"
+	
+	#getDefaultIP( 'host-101.txt', sendIP )
+	#Builds the packet using the hex string of the first packet. 
+	newPacket = IP( dst = overlayIP ) / UDP( ) / rawData
+	newPacket.show( )
+	#Send does not work because scapy appears to need root in order to
+    #use raw packets, haven't found a workaround
+	
+    #send( newPacket / ICMP( ) )
+	
+	
+    #TODO CHECKSUM
+        #This is done by calling the command .show2() on the packet:
+        #Example: newPacket.show2( )
+        #If we want to avoid the print it does we can do this:
+
+        #del packet.chksum      // Make sure the checksum is delted
+        #packet = packet.__class__( str ( packet) )
+
+        #This is what .show2( ) runs in the background before printing
+	
+#Client thread for receiving
+def receiveThread( ):
+	#Probably need to use sniff here to watch for packets, not quite sure
+    #how to implement it yet.
+	
+    #sniff( )
+	print ( "Sniff here" )
+
+#start threads here
+ownIP = raw_input( 'Enter your IP Address: \n' )
+defSendIP = getDefaultIP( ownIP )
+#print( "Sending IP:" + defSendIP )
+
+try:
+	recieve = threading.Thread( target = receiveThread )
+	recieve.start( )
+	sendThread = threading.Thread( target = sendThread )
+	sendThread.start( )
+	
+except:
+	print "thread Error"
+	raise

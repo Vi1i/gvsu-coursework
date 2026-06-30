@@ -1,0 +1,97 @@
+import java.io.*;
+import java.net.*;
+
+class tcpclient {
+
+
+	public static void main(String args[]) throws Exception {
+		tcpclient client = new tcpclient();
+BufferedReader inFromUser = new BufferedReader(new InputStreamReader(
+				System.in));
+		System.out.println("Type IP address of the server:");
+		String ip = inFromUser.readLine();
+		Socket clientSocket = new Socket(ip, 9876);		
+		System.out.println("IP address accepted");
+		DataOutputStream outToServer = new DataOutputStream(
+				clientSocket.getOutputStream());
+		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(
+				clientSocket.getInputStream()));
+
+		
+		System.out.println("Type cmd close to exit."+ "\n To message everyone just type, to message a group type Group:groupname message, to message a person type User:username message.");
+		while (true){
+		System.out.println("Enter a message: ");
+		
+		String message = inFromUser.readLine();
+		if (message.equals("cmd close")){
+			/*add server output message for leaving */
+			clientSocket.close();
+		}
+		outToServer.writeBytes(message + '\n');
+		String serverMessage = inFromServer.readLine();
+
+		System.out.println("Got from server: " + serverMessage);
+		
+	}
+	}
+	}
+
+class clientSend implements Runnable {
+	String sendMessage;
+	Socket clientSocket;
+	BufferedReader userInput;
+	DataOutputStream outToServer;
+
+	public clientSend(Socket clientSocket) {
+		this.clientSocket = clientSocket;
+	}
+
+	public void run() {
+		userInput = new BufferedReader(new InputStreamReader(System.in));
+try{		outToServer = new DataOutputStream(clientSocket.getOutputStream());}catch (IOException e){
+	System.out.println("Error making output stream to server");
+	System.exit(1);
+}
+	while(true){
+		System.out.println("enter message to send:");
+		try{	
+			sendMessage = userInput.readLine();
+			outToServer.writeBytes(sendMessage);
+		} catch(IOException z){
+			System.out.println("Error sending message to server");
+		}
+	}
+}
+}
+
+class clientRecieve implements Runnable {
+	String message;
+	Socket clientSocket;
+	BufferedReader inFromServer;
+
+	public clientRecieve(Socket clientSocket) {
+		this.clientSocket = clientSocket;
+	}
+
+	public void run() {
+		try {
+			inFromServer = new BufferedReader(new InputStreamReader(
+					clientSocket.getInputStream()));
+		} catch (IOException e) {
+			System.out.println("error getting server message, closing program");
+			System.exit(1);
+		}
+	while(true){
+		try{
+		message = inFromServer.readLine();
+		}catch(IOException e){
+			System.out.println("Error reading message from server");
+		}
+		if (message != "" && message!= null) {
+			System.out.println("Got from server:" + message);
+		}
+
+	}
+
+}
+}

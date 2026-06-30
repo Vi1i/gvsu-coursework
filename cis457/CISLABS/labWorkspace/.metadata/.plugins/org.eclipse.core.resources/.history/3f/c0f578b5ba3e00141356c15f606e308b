@@ -1,0 +1,59 @@
+import java.io.*;
+import java.net.*;
+
+class tcpclient {
+
+	public static void main(String args[]) throws Exception {
+		Socket clientSocket = new Socket("127.0.0.1", 9886);
+		clientSend send = new clientSend(clientSocket);
+		clientRecieve recieve = new clientRecieve(clientSocket);
+		send.run();
+		recieve.run();
+
+		clientSocket.close();
+	}
+
+}
+
+class clientSend implements Runnable {
+	String sendMessage;
+	Socket clientSocket;
+	BufferedReader userInput;
+	DataOutputStream outToServer;
+
+	public clientSend(Socket clientSocket) {
+		this.clientSocket = clientSocket;
+	}
+
+	public void run() {
+		userInput = new BufferedReader(new InputStreamReader(System.in));
+	}
+
+}
+
+class clientRecieve implements Runnable {
+	String message;
+	Socket clientSocket;
+	BufferedReader inFromServer;
+
+	public clientRecieve(Socket clientSocket) {
+		this.clientSocket = clientSocket;
+	}
+
+	public void run() {
+		try {
+			inFromServer = new BufferedReader(new InputStreamReader(
+					clientSocket.getInputStream()));
+			message = inFromServer.readLine();
+		} catch (IOException e) {
+			System.out.println("error getting server message, closing program");
+			System.exit(1);
+		}
+
+		if (message != "") {
+			System.out.println("Got from server:" + message);
+		}
+
+	}
+
+}
