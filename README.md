@@ -12,3 +12,4 @@ via `git subtree`.
 | CIS 451 | Computer Architecture | Kurmas | Winter 2015 | [cis451/](cis451) |
 | CIS 452 | Operating Systems Concepts | Wolffe | Winter 2015 | [cis452/](cis452) |
 | CIS 458 | System Security | — | Fall 2015 | [cis458/](cis458) |
+| CIS 467 | Computer Science Project (Senior Capstone — Automata topic) | — | Fall 2016 | [cis467/](cis467) |
