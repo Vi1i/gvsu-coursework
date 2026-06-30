@@ -1,0 +1,401 @@
+details,postingDate,description,amount,type,balance
+credit,2017-02-16 21:11:15,cbp transfer from savings,470.58,acct_xfer,470.58
+credit,2017-01-06 12:14:42,interest payment,55.89,misc_credit,526.47
+debit,2017-01-31 20:11:54,cbp transfer from savings,-430.735405535,acct_xfer,95.7345944649
+credit,2017-02-11 20:43:42,online transfer,463.27,acct_xfer,559.004594465
+credit,2017-02-14 08:06:09,online transfer,183.07,acct_xfer,742.074594465
+credit,2017-01-16 10:15:35,interest payment,430.66,acct_xfer,1172.73459446
+credit,2017-02-19 17:08:11,interest payment,413.55,acct_xfer,1586.28459446
+credit,2017-02-23 03:30:59,interest payment,298.72,acct_xfer,1885.00459446
+credit,2017-04-03 20:33:49,online transfer,439.62,misc_credit,2324.62459446
+credit,2017-03-15 23:09:06,online transfer,145.1,acct_xfer,2469.72459446
+credit,2017-01-17 22:06:16,interest payment,300.93,misc_credit,2770.65459446
+credit,2016-12-21 12:11:59,interest payment,442.01,acct_xfer,3212.66459446
+credit,2016-12-12 01:42:42,online transfer,285.59,acct_xfer,3498.25459446
+credit,2017-01-26 02:40:22,online transfer,372.57,misc_credit,3870.82459446
+credit,2017-04-03 18:50:05,online transfer,366.47,acct_xfer,4237.29459446
+credit,2017-01-25 09:30:45,online transfer,197.56,acct_xfer,4434.85459446
+debit,2017-02-05 15:52:39,cbp transfer from savings,-125.229426616,acct_xfer,4309.62516785
+credit,2016-12-14 10:52:33,interest payment,475.01,acct_xfer,4784.63516785
+debit,2016-12-12 14:45:23,cbp transfer from savings,-177.625530285,acct_xfer,4607.00963756
+debit,2017-01-03 15:42:51,cbp transfer from savings,-176.571402763,acct_xfer,4430.4382348
+credit,2017-03-27 16:15:34,online transfer,58.56,acct_xfer,4488.9982348
+debit,2017-02-19 04:58:09,cbp transfer from savings,-254.210942431,misc_credit,4234.78729237
+credit,2017-02-19 15:44:56,interest payment,487.07,acct_xfer,4721.85729237
+credit,2017-01-02 22:01:54,online transfer,264.12,acct_xfer,4985.97729237
+credit,2016-12-16 22:45:27,online transfer,317.43,misc_credit,5303.40729237
+credit,2017-03-26 01:56:47,online transfer,296.37,misc_credit,5599.77729237
+credit,2017-02-10 11:21:54,online transfer,173.82,misc_credit,5773.59729237
+credit,2017-01-25 19:17:41,online transfer,335.55,acct_xfer,6109.14729237
+credit,2017-01-29 16:43:35,online transfer,253.83,acct_xfer,6362.97729237
+credit,2017-02-25 00:30:05,online transfer,106.29,acct_xfer,6469.26729237
+credit,2017-02-15 11:34:44,online transfer,261.26,misc_credit,6730.52729237
+credit,2017-03-01 00:17:31,interest payment,463.43,misc_credit,7193.95729237
+credit,2016-12-11 15:27:13,online transfer,301.69,misc_credit,7495.64729237
+credit,2017-03-01 13:02:18,online transfer,398.74,acct_xfer,7894.38729237
+credit,2017-01-21 10:20:11,online transfer,453.28,acct_xfer,8347.66729237
+credit,2017-01-18 10:23:40,interest payment,381,misc_credit,8728.66729237
+credit,2017-03-26 00:30:21,online transfer,266.62,acct_xfer,8995.28729237
+credit,2017-02-06 12:47:14,online transfer,118.21,misc_credit,9113.49729237
+credit,2017-02-23 20:25:25,online transfer,143.52,acct_xfer,9257.01729237
+credit,2017-01-31 22:15:11,online transfer,295.39,acct_xfer,9552.40729237
+credit,2017-03-10 21:56:13,online transfer,277.07,misc_credit,9829.47729237
+credit,2017-03-29 17:29:21,online transfer,432.22,misc_credit,10261.6972924
+credit,2017-01-11 22:14:37,interest payment,83.13,misc_credit,10344.8272924
+credit,2017-01-17 16:01:09,online transfer,180.16,misc_credit,10524.9872924
+credit,2017-02-20 17:05:56,online transfer,198.19,acct_xfer,10723.1772924
+credit,2017-03-14 20:48:52,online transfer,319.48,acct_xfer,11042.6572924
+credit,2017-02-12 11:56:17,interest payment,476.17,acct_xfer,11518.8272924
+credit,2017-01-28 16:19:44,online transfer,379.79,acct_xfer,11898.6172924
+credit,2016-12-23 05:40:43,online transfer,283.06,misc_credit,12181.6772924
+debit,2017-02-23 02:32:52,cbp transfer from savings,-487.575341507,acct_xfer,11694.1019509
+credit,2017-03-09 06:13:40,interest payment,450.53,acct_xfer,12144.6319509
+credit,2017-02-07 20:29:21,interest payment,487.01,misc_credit,12631.6419509
+debit,2017-03-02 10:40:41,cbp transfer from savings,-181.274997409,misc_credit,12450.3669535
+debit,2016-12-30 03:03:27,cbp transfer from savings,-259.062631022,acct_xfer,12191.3043224
+credit,2017-04-01 08:46:16,online transfer,78.61,acct_xfer,12269.9143224
+credit,2016-12-18 15:13:14,interest payment,327.86,acct_xfer,12597.7743224
+debit,2017-01-15 09:29:52,cbp transfer from savings,-101.500890875,acct_xfer,12496.2734316
+credit,2017-02-23 01:51:27,online transfer,155.64,acct_xfer,12651.9134316
+debit,2016-12-13 16:31:41,cbp transfer from savings,-307.485771681,misc_credit,12344.4276599
+credit,2017-02-02 00:01:44,online transfer,461.96,acct_xfer,12806.3876599
+credit,2017-02-28 03:54:55,online transfer,493.62,misc_credit,13300.0076599
+debit,2016-12-24 13:35:49,cbp transfer from savings,-427.656488557,misc_credit,12872.3511713
+credit,2017-01-16 21:20:50,online transfer,319.87,acct_xfer,13192.2211713
+credit,2017-02-03 21:49:14,online transfer,427.54,acct_xfer,13619.7611713
+credit,2016-12-11 22:21:30,online transfer,247.39,acct_xfer,13867.1511713
+debit,2017-01-11 01:03:28,cbp transfer from savings,-445.283878818,acct_xfer,13421.8672925
+credit,2017-02-07 22:04:48,online transfer,118.67,acct_xfer,13540.5372925
+credit,2016-12-26 22:59:50,online transfer,193.77,acct_xfer,13734.3072925
+debit,2017-03-16 04:02:58,cbp transfer from savings,-304.190982455,acct_xfer,13430.11631
+credit,2017-03-10 02:29:04,online transfer,246.82,misc_credit,13676.93631
+credit,2017-03-06 01:40:45,online transfer,487.28,acct_xfer,14164.21631
+credit,2017-02-19 19:15:06,online transfer,63.03,acct_xfer,14227.24631
+credit,2017-01-04 10:21:56,online transfer,484.43,acct_xfer,14711.67631
+credit,2016-12-10 00:33:55,online transfer,461.22,misc_credit,15172.89631
+credit,2017-01-11 22:23:37,online transfer,254.51,acct_xfer,15427.40631
+credit,2016-12-27 00:08:14,online transfer,272.19,misc_credit,15699.59631
+credit,2016-12-13 13:24:56,online transfer,107.45,misc_credit,15807.04631
+credit,2017-02-06 08:15:51,interest payment,385.99,misc_credit,16193.03631
+credit,2017-03-15 02:43:03,online transfer,455.68,misc_credit,16648.71631
+credit,2017-02-05 11:20:15,online transfer,369.24,acct_xfer,17017.95631
+credit,2017-03-28 04:19:33,online transfer,57.98,misc_credit,17075.93631
+credit,2017-01-08 08:55:41,online transfer,140.11,misc_credit,17216.04631
+credit,2017-02-12 00:00:46,interest payment,169.32,acct_xfer,17385.36631
+credit,2017-02-14 11:23:13,online transfer,280.02,misc_credit,17665.38631
+credit,2017-03-04 10:15:08,interest payment,156.34,misc_credit,17821.72631
+credit,2017-01-15 09:31:11,online transfer,110.59,acct_xfer,17932.31631
+credit,2017-02-11 04:01:40,interest payment,127.34,acct_xfer,18059.65631
+debit,2017-01-08 22:47:16,cbp transfer from savings,-66.1077722434,misc_credit,17993.5485378
+credit,2017-01-11 09:17:43,online transfer,386.27,acct_xfer,18379.8185378
+credit,2016-12-26 20:06:54,online transfer,236.63,misc_credit,18616.4485378
+credit,2017-02-05 11:49:54,online transfer,383.28,acct_xfer,18999.7285378
+debit,2017-01-10 16:29:43,cbp transfer from savings,-439.56412498,misc_credit,18560.1644128
+credit,2017-01-17 01:13:30,online transfer,473.69,acct_xfer,19033.8544128
+credit,2017-02-26 18:58:29,online transfer,157.39,acct_xfer,19191.2444128
+debit,2017-02-06 15:05:19,cbp transfer from savings,-497.261270517,acct_xfer,18693.9831423
+credit,2017-02-10 20:20:22,interest payment,225.86,misc_credit,18919.8431423
+credit,2017-02-06 19:09:24,interest payment,352.13,acct_xfer,19271.9731423
+credit,2017-02-23 18:32:20,online transfer,276.35,misc_credit,19548.3231423
+credit,2017-01-29 16:43:46,online transfer,279.69,misc_credit,19828.0131423
+credit,2017-02-17 14:02:48,interest payment,241.32,acct_xfer,20069.3331423
+debit,2017-03-05 12:26:21,cbp transfer from savings,-174.656534759,misc_credit,19894.6766075
+credit,2017-02-07 02:08:59,online transfer,200.09,misc_credit,20094.7666075
+credit,2016-12-29 06:14:42,interest payment,200.55,acct_xfer,20295.3166075
+credit,2016-12-13 20:24:47,interest payment,274.22,acct_xfer,20569.5366075
+credit,2017-03-13 01:07:35,interest payment,261.59,misc_credit,20831.1266075
+credit,2017-01-24 15:17:00,interest payment,303.15,acct_xfer,21134.2766075
+credit,2017-02-10 22:32:02,online transfer,67.11,misc_credit,21201.3866075
+credit,2017-02-05 16:02:30,interest payment,258.79,acct_xfer,21460.1766075
+credit,2017-02-22 05:29:57,online transfer,85.19,misc_credit,21545.3666075
+credit,2016-12-09 17:18:08,online transfer,135.27,misc_credit,21680.6366075
+credit,2017-01-07 10:50:31,interest payment,327.35,misc_credit,22007.9866075
+credit,2017-03-24 21:51:05,interest payment,165.43,misc_credit,22173.4166075
+credit,2017-02-22 01:41:10,online transfer,146.46,misc_credit,22319.8766075
+credit,2016-12-28 10:55:36,interest payment,206.5,acct_xfer,22526.3766075
+credit,2017-04-04 22:28:53,interest payment,454.45,misc_credit,22980.8266075
+credit,2017-01-11 15:53:06,online transfer,449.16,misc_credit,23429.9866075
+debit,2017-02-09 08:24:34,cbp transfer from savings,-116.07577,acct_xfer,23313.9108375
+debit,2017-02-27 13:33:53,cbp transfer from savings,-406.77704683,acct_xfer,22907.1337907
+credit,2017-03-06 18:34:41,online transfer,246.42,acct_xfer,23153.5537907
+credit,2017-03-02 01:35:00,online transfer,89.58,acct_xfer,23243.1337907
+credit,2017-01-29 18:13:38,interest payment,363.99,misc_credit,23607.1237907
+credit,2017-02-04 14:55:31,online transfer,254.84,misc_credit,23861.9637907
+credit,2016-12-25 23:52:25,interest payment,258.78,misc_credit,24120.7437907
+credit,2017-01-06 14:10:47,interest payment,96.84,acct_xfer,24217.5837907
+debit,2017-03-09 22:56:26,cbp transfer from savings,-65.6474990894,acct_xfer,24151.9362916
+credit,2017-01-22 02:55:40,online transfer,477.41,acct_xfer,24629.3462916
+debit,2017-03-30 20:02:11,cbp transfer from savings,-369.679794123,acct_xfer,24259.6664975
+debit,2017-03-29 22:41:17,cbp transfer from savings,-330.214902827,misc_credit,23929.4515947
+credit,2017-01-11 06:28:13,online transfer,420.22,misc_credit,24349.6715947
+credit,2017-01-04 12:09:18,interest payment,356.02,acct_xfer,24705.6915947
+credit,2017-01-19 09:23:17,online transfer,473.17,acct_xfer,25178.8615947
+credit,2017-03-03 18:16:31,online transfer,340.49,acct_xfer,25519.3515947
+credit,2017-04-02 09:58:35,interest payment,76.03,acct_xfer,25595.3815947
+credit,2016-12-20 11:50:20,interest payment,497.24,acct_xfer,26092.6215947
+credit,2017-03-11 14:59:05,online transfer,117.35,acct_xfer,26209.9715947
+credit,2017-03-02 03:18:26,online transfer,238.07,misc_credit,26448.0415947
+credit,2017-01-12 06:36:48,online transfer,62.72,acct_xfer,26510.7615947
+debit,2017-02-25 18:21:38,cbp transfer from savings,-466.498000293,misc_credit,26044.2635944
+debit,2016-12-24 03:27:05,cbp transfer from savings,-320.227779903,acct_xfer,25724.0358145
+credit,2017-03-23 13:35:28,online transfer,228.8,acct_xfer,25952.8358145
+credit,2017-03-02 08:45:30,interest payment,324.92,misc_credit,26277.7558145
+credit,2016-12-31 04:47:51,interest payment,294.45,acct_xfer,26572.2058145
+credit,2016-12-16 19:14:37,interest payment,367.92,misc_credit,26940.1258145
+debit,2017-03-19 21:37:30,cbp transfer from savings,-267.165794227,acct_xfer,26672.9600203
+credit,2017-01-01 09:09:01,online transfer,270.77,acct_xfer,26943.7300203
+credit,2017-01-10 21:30:32,online transfer,190.8,acct_xfer,27134.5300203
+credit,2017-02-26 19:50:05,online transfer,199.83,misc_credit,27334.3600203
+credit,2017-02-08 10:44:57,interest payment,386.85,acct_xfer,27721.2100203
+credit,2017-03-16 16:00:02,interest payment,493.15,acct_xfer,28214.3600203
+credit,2017-01-28 09:34:36,interest payment,413.53,acct_xfer,28627.8900203
+credit,2017-02-28 11:10:58,online transfer,297.56,acct_xfer,28925.4500203
+credit,2016-12-09 21:29:54,interest payment,102.09,acct_xfer,29027.5400203
+credit,2017-03-23 07:31:55,online transfer,78.89,acct_xfer,29106.4300203
+credit,2017-02-06 08:36:40,online transfer,199.98,acct_xfer,29306.4100203
+credit,2017-02-14 11:25:54,online transfer,431.43,acct_xfer,29737.8400203
+credit,2017-03-31 18:54:10,interest payment,438.04,acct_xfer,30175.8800203
+credit,2017-03-22 02:32:52,online transfer,389.02,acct_xfer,30564.9000203
+credit,2017-04-04 22:57:30,interest payment,214.69,misc_credit,30779.5900203
+debit,2016-12-19 01:48:39,cbp transfer from savings,-130.378867904,misc_credit,30649.2111524
+credit,2017-03-27 19:08:56,online transfer,381.45,acct_xfer,31030.6611524
+credit,2017-03-09 13:09:54,online transfer,264.06,misc_credit,31294.7211524
+debit,2017-01-25 10:53:42,cbp transfer from savings,-317.669316826,misc_credit,30977.0518355
+credit,2017-03-16 11:01:55,online transfer,100.25,acct_xfer,31077.3018355
+credit,2017-01-25 21:22:27,online transfer,482.04,misc_credit,31559.3418355
+credit,2017-02-19 09:30:42,online transfer,194.71,acct_xfer,31754.0518355
+credit,2017-02-11 21:24:48,online transfer,84.94,acct_xfer,31838.9918355
+credit,2017-01-09 00:00:34,online transfer,128.39,acct_xfer,31967.3818355
+credit,2017-01-22 11:48:19,online transfer,443.57,acct_xfer,32410.9518355
+credit,2017-02-16 22:31:42,online transfer,350.21,acct_xfer,32761.1618355
+credit,2017-02-27 19:24:00,interest payment,227.79,acct_xfer,32988.9518355
+debit,2017-01-14 19:56:58,cbp transfer from savings,-107.180051566,acct_xfer,32881.771784
+credit,2016-12-25 23:15:25,online transfer,155.27,misc_credit,33037.041784
+credit,2017-04-01 00:41:12,online transfer,309.48,misc_credit,33346.521784
+credit,2017-03-26 07:32:27,online transfer,493.5,misc_credit,33840.021784
+debit,2017-01-02 20:48:20,cbp transfer from savings,-244.952271477,misc_credit,33595.0695125
+credit,2016-12-11 10:23:50,online transfer,410.28,misc_credit,34005.3495125
+credit,2017-02-16 02:59:06,interest payment,308.74,misc_credit,34314.0895125
+credit,2017-02-21 00:00:32,online transfer,158.94,acct_xfer,34473.0295125
+credit,2017-03-30 22:58:37,online transfer,187.47,acct_xfer,34660.4995125
+credit,2017-02-28 14:13:11,interest payment,384.95,misc_credit,35045.4495125
+credit,2017-01-29 14:08:39,interest payment,126.9,acct_xfer,35172.3495125
+credit,2017-02-17 20:39:28,interest payment,488.27,acct_xfer,35660.6195125
+credit,2016-12-31 14:06:19,interest payment,288.33,acct_xfer,35948.9495125
+credit,2016-12-31 23:05:46,online transfer,80.97,misc_credit,36029.9195125
+credit,2016-12-19 10:56:33,online transfer,444.93,acct_xfer,36474.8495125
+credit,2017-02-13 05:34:52,online transfer,416.93,acct_xfer,36891.7795125
+credit,2017-03-15 09:44:46,online transfer,239.49,acct_xfer,37131.2695125
+debit,2016-12-27 02:59:49,cbp transfer from savings,-285.797139025,acct_xfer,36845.4723735
+credit,2017-03-04 09:03:07,interest payment,308.26,misc_credit,37153.7323735
+credit,2016-12-10 10:42:16,online transfer,359.51,misc_credit,37513.2423735
+credit,2017-01-08 15:38:39,online transfer,191.64,misc_credit,37704.8823735
+credit,2017-02-17 14:06:43,interest payment,400.24,acct_xfer,38105.1223735
+credit,2017-04-04 15:38:48,interest payment,123.45,misc_credit,38228.5723735
+credit,2017-01-26 00:00:00,online transfer,208.73,misc_credit,38437.3023735
+credit,2017-02-05 04:34:33,interest payment,108.35,acct_xfer,38545.6523735
+credit,2017-01-27 18:58:26,online transfer,156.4,misc_credit,38702.0523735
+credit,2017-02-26 18:41:50,online transfer,346.46,acct_xfer,39048.5123735
+credit,2017-03-31 19:12:44,online transfer,126.89,misc_credit,39175.4023735
+debit,2017-03-10 00:55:06,cbp transfer from savings,-461.194130341,acct_xfer,38714.2082431
+credit,2017-04-03 00:23:58,interest payment,378.46,acct_xfer,39092.6682431
+credit,2017-03-28 23:21:20,online transfer,100.77,acct_xfer,39193.4382431
+credit,2016-12-17 23:56:41,online transfer,239.73,acct_xfer,39433.1682431
+debit,2017-01-17 13:21:53,cbp transfer from savings,-448.93078201,acct_xfer,38984.2374611
+credit,2017-03-06 12:23:43,online transfer,295.99,misc_credit,39280.2274611
+credit,2017-04-03 20:56:17,online transfer,440.73,acct_xfer,39720.9574611
+credit,2017-01-25 15:34:03,online transfer,156.05,misc_credit,39877.0074611
+credit,2017-03-29 00:23:56,online transfer,300.32,misc_credit,40177.3274611
+credit,2017-01-03 18:30:52,online transfer,410.51,acct_xfer,40587.8374611
+credit,2017-03-10 09:15:36,interest payment,339.19,acct_xfer,40927.0274611
+credit,2016-12-26 07:02:49,online transfer,146.66,misc_credit,41073.6874611
+credit,2016-12-25 22:19:50,interest payment,139.83,misc_credit,41213.5174611
+credit,2017-03-02 06:46:39,interest payment,269.15,misc_credit,41482.6674611
+credit,2017-02-18 19:15:11,online transfer,128.14,acct_xfer,41610.8074611
+credit,2017-03-25 05:37:51,online transfer,308.17,misc_credit,41918.9774611
+credit,2016-12-11 22:29:50,online transfer,393.07,acct_xfer,42312.0474611
+credit,2017-02-19 20:19:59,interest payment,73.19,acct_xfer,42385.2374611
+credit,2016-12-16 01:50:03,interest payment,386.16,acct_xfer,42771.3974611
+credit,2017-01-31 23:39:34,online transfer,57.71,misc_credit,42829.1074611
+credit,2017-03-02 04:35:41,online transfer,275.85,acct_xfer,43104.9574611
+credit,2017-01-28 16:45:40,online transfer,478.64,acct_xfer,43583.5974611
+credit,2017-03-19 04:57:40,online transfer,89.64,acct_xfer,43673.2374611
+debit,2017-03-18 13:41:48,cbp transfer from savings,-85.6614653927,acct_xfer,43587.5759957
+credit,2016-12-23 03:06:29,online transfer,276.33,acct_xfer,43863.9059957
+credit,2017-03-06 13:36:58,online transfer,395.72,acct_xfer,44259.6259957
+credit,2017-02-04 14:25:32,online transfer,180.4,acct_xfer,44440.0259957
+credit,2017-01-16 02:16:24,online transfer,366.07,acct_xfer,44806.0959957
+credit,2017-02-16 02:18:45,online transfer,353.63,acct_xfer,45159.7259957
+credit,2017-01-22 21:30:18,interest payment,119.24,acct_xfer,45278.9659957
+credit,2017-01-19 07:35:59,interest payment,229.19,acct_xfer,45508.1559957
+debit,2017-01-08 16:54:10,cbp transfer from savings,-388.809385125,misc_credit,45119.3466106
+credit,2017-03-16 05:38:12,interest payment,408.89,misc_credit,45528.2366106
+credit,2017-01-24 21:18:05,interest payment,103.07,acct_xfer,45631.3066106
+credit,2017-02-11 17:39:21,online transfer,466.3,misc_credit,46097.6066106
+credit,2017-01-24 02:05:12,interest payment,468.37,misc_credit,46565.9766106
+credit,2017-02-19 18:42:57,online transfer,455.93,acct_xfer,47021.9066106
+credit,2017-02-09 10:30:51,online transfer,362.87,misc_credit,47384.7766106
+credit,2016-12-17 02:39:11,interest payment,361.46,misc_credit,47746.2366106
+debit,2017-01-09 13:12:51,cbp transfer from savings,-205.888444304,misc_credit,47540.3481663
+credit,2017-01-02 08:43:15,interest payment,366.87,misc_credit,47907.2181663
+credit,2016-12-27 22:22:11,online transfer,465.25,acct_xfer,48372.4681663
+credit,2016-12-16 06:45:00,online transfer,195.96,misc_credit,48568.4281663
+credit,2017-02-20 05:42:25,online transfer,110.41,acct_xfer,48678.8381663
+credit,2017-01-01 05:51:49,online transfer,63.91,acct_xfer,48742.7481663
+credit,2017-01-04 15:05:20,online transfer,438.81,misc_credit,49181.5581663
+credit,2016-12-26 06:10:12,interest payment,226.21,acct_xfer,49407.7681663
+credit,2017-01-06 12:34:39,interest payment,254.86,misc_credit,49662.6281663
+credit,2017-01-08 23:57:26,online transfer,407.94,acct_xfer,50070.5681663
+credit,2017-01-24 22:37:37,interest payment,446.13,misc_credit,50516.6981663
+credit,2016-12-13 03:47:40,interest payment,200.3,acct_xfer,50716.9981663
+credit,2017-04-02 05:52:13,online transfer,271.39,acct_xfer,50988.3881663
+debit,2017-02-11 06:08:55,cbp transfer from savings,-308.686735307,acct_xfer,50679.701431
+debit,2016-12-28 15:21:57,cbp transfer from savings,-330.899687499,acct_xfer,50348.8017435
+credit,2017-01-11 09:19:42,online transfer,343.1,acct_xfer,50691.9017435
+credit,2017-02-23 20:25:18,interest payment,247.31,acct_xfer,50939.2117435
+credit,2017-03-20 16:20:53,online transfer,461.76,acct_xfer,51400.9717435
+credit,2017-03-28 20:09:21,online transfer,90.58,acct_xfer,51491.5517435
+credit,2017-01-31 06:25:08,online transfer,158.61,misc_credit,51650.1617435
+credit,2017-04-02 05:38:30,interest payment,305.07,misc_credit,51955.2317435
+credit,2017-03-28 03:51:40,online transfer,183.18,acct_xfer,52138.4117435
+credit,2016-12-12 04:13:59,online transfer,164.1,acct_xfer,52302.5117435
+credit,2017-02-04 18:31:35,interest payment,86.27,acct_xfer,52388.7817435
+credit,2017-01-21 05:41:00,interest payment,330.14,acct_xfer,52718.9217435
+credit,2017-02-12 05:03:54,online transfer,238.28,acct_xfer,52957.2017435
+credit,2017-01-03 20:46:08,interest payment,444.08,acct_xfer,53401.2817435
+credit,2016-12-25 11:48:12,online transfer,425.23,misc_credit,53826.5117435
+credit,2017-03-05 04:58:48,interest payment,386.18,misc_credit,54212.6917435
+credit,2017-04-01 06:44:46,online transfer,492.91,misc_credit,54705.6017435
+credit,2017-01-20 14:20:54,online transfer,359.99,acct_xfer,55065.5917435
+credit,2017-02-01 20:11:25,online transfer,56.28,misc_credit,55121.8717435
+credit,2016-12-21 02:02:15,online transfer,257.98,acct_xfer,55379.8517435
+credit,2017-01-12 03:43:44,online transfer,283.35,acct_xfer,55663.2017435
+credit,2017-01-11 19:56:39,interest payment,156,acct_xfer,55819.2017435
+credit,2016-12-25 01:22:48,online transfer,321,acct_xfer,56140.2017435
+credit,2017-03-11 10:49:09,interest payment,227.07,acct_xfer,56367.2717435
+credit,2017-03-02 15:23:26,online transfer,116.47,misc_credit,56483.7417435
+credit,2017-02-20 17:57:32,interest payment,102.51,acct_xfer,56586.2517435
+credit,2017-01-14 23:27:14,online transfer,50.25,acct_xfer,56636.5017435
+credit,2017-01-01 18:00:11,online transfer,139.33,acct_xfer,56775.8317435
+debit,2017-02-18 07:43:25,cbp transfer from savings,-418.584208446,acct_xfer,56357.247535
+debit,2017-01-14 02:24:10,cbp transfer from savings,-191.701472867,misc_credit,56165.5460622
+credit,2016-12-24 18:02:40,online transfer,478.38,acct_xfer,56643.9260622
+credit,2016-12-13 05:44:53,online transfer,328.65,acct_xfer,56972.5760622
+debit,2017-02-24 07:48:51,cbp transfer from savings,-79.1170054747,misc_credit,56893.4590567
+credit,2017-01-02 11:28:40,online transfer,346.03,acct_xfer,57239.4890567
+credit,2017-02-20 20:58:52,online transfer,329.84,misc_credit,57569.3290567
+credit,2017-01-27 01:26:24,online transfer,268.13,acct_xfer,57837.4590567
+credit,2017-01-26 18:17:06,interest payment,320.31,acct_xfer,58157.7690567
+credit,2017-01-20 07:49:59,online transfer,307.4,acct_xfer,58465.1690567
+credit,2017-01-02 10:11:43,online transfer,97.35,misc_credit,58562.5190567
+credit,2016-12-26 17:59:12,online transfer,279.12,misc_credit,58841.6390567
+credit,2016-12-29 14:12:44,interest payment,397.04,misc_credit,59238.6790567
+credit,2017-02-07 17:44:33,online transfer,411.62,acct_xfer,59650.2990567
+credit,2017-03-30 06:08:17,online transfer,419.53,acct_xfer,60069.8290567
+credit,2017-03-30 06:45:07,online transfer,348.3,acct_xfer,60418.1290567
+debit,2016-12-26 15:54:17,cbp transfer from savings,-64.9764023428,misc_credit,60353.1526543
+credit,2017-01-05 22:34:52,online transfer,160.51,misc_credit,60513.6626543
+credit,2017-02-21 15:04:58,online transfer,421.87,acct_xfer,60935.5326543
+credit,2017-01-20 11:20:23,online transfer,104.75,acct_xfer,61040.2826543
+credit,2017-01-13 08:48:55,online transfer,393.93,acct_xfer,61434.2126543
+credit,2017-03-25 22:59:32,interest payment,52.52,acct_xfer,61486.7326543
+credit,2017-04-03 00:08:06,interest payment,140.41,acct_xfer,61627.1426543
+credit,2017-01-09 21:00:56,interest payment,187.97,acct_xfer,61815.1126543
+credit,2017-02-01 15:40:45,interest payment,343.32,misc_credit,62158.4326543
+credit,2017-01-25 23:07:36,interest payment,380.97,acct_xfer,62539.4026543
+credit,2017-01-10 06:13:54,online transfer,108.75,acct_xfer,62648.1526543
+debit,2017-03-19 02:05:53,cbp transfer from savings,-296.421862915,acct_xfer,62351.7307914
+credit,2017-01-05 06:30:40,online transfer,423.9,acct_xfer,62775.6307914
+credit,2017-02-20 01:08:03,online transfer,465.15,acct_xfer,63240.7807914
+debit,2017-01-22 17:32:43,cbp transfer from savings,-330.575398494,acct_xfer,62910.2053929
+credit,2016-12-16 06:36:58,interest payment,70.61,acct_xfer,62980.8153929
+credit,2016-12-29 11:38:28,online transfer,113.26,misc_credit,63094.0753929
+credit,2017-02-09 04:38:44,interest payment,215.97,misc_credit,63310.0453929
+credit,2017-02-02 19:55:42,interest payment,267.55,acct_xfer,63577.5953929
+credit,2016-12-19 19:29:44,interest payment,405.27,acct_xfer,63982.8653929
+credit,2017-03-08 04:59:03,online transfer,92.4,acct_xfer,64075.2653929
+credit,2017-03-07 20:51:52,online transfer,365.42,acct_xfer,64440.6853929
+credit,2017-01-27 05:21:19,online transfer,250.87,acct_xfer,64691.5553929
+credit,2017-03-14 16:12:43,interest payment,206.53,acct_xfer,64898.0853929
+credit,2016-12-15 15:39:27,interest payment,120.55,misc_credit,65018.6353929
+credit,2017-01-27 05:31:17,interest payment,315.58,acct_xfer,65334.2153929
+credit,2017-03-18 01:55:44,interest payment,233.33,misc_credit,65567.5453929
+credit,2017-04-01 01:46:46,online transfer,177.71,acct_xfer,65745.2553929
+credit,2017-02-17 19:10:58,online transfer,394.15,acct_xfer,66139.4053929
+debit,2017-03-13 14:18:32,cbp transfer from savings,-433.917084209,acct_xfer,65705.4883087
+credit,2017-01-03 03:39:04,online transfer,75.92,acct_xfer,65781.4083087
+debit,2016-12-16 17:33:48,cbp transfer from savings,-489.637344296,acct_xfer,65291.7709644
+credit,2017-02-28 22:56:17,interest payment,115.61,acct_xfer,65407.3809644
+credit,2017-03-11 08:37:28,online transfer,306.16,acct_xfer,65713.5409644
+credit,2016-12-21 10:47:05,interest payment,126.62,acct_xfer,65840.1609644
+credit,2017-02-08 21:58:34,interest payment,419.7,acct_xfer,66259.8609644
+credit,2016-12-29 19:34:38,online transfer,306.79,acct_xfer,66566.6509644
+credit,2016-12-21 12:28:05,interest payment,476.09,misc_credit,67042.7409644
+credit,2017-01-10 20:05:14,online transfer,125.79,misc_credit,67168.5309644
+debit,2017-01-05 07:52:33,cbp transfer from savings,-71.8283889089,acct_xfer,67096.7025755
+credit,2017-02-10 18:17:47,online transfer,117.26,misc_credit,67213.9625755
+credit,2017-01-26 13:11:35,online transfer,125.5,acct_xfer,67339.4625755
+credit,2017-03-31 20:59:19,online transfer,225.14,acct_xfer,67564.6025755
+credit,2017-04-04 18:17:28,interest payment,160.23,acct_xfer,67724.8325755
+credit,2017-02-23 04:45:21,online transfer,71.04,acct_xfer,67795.8725755
+credit,2017-01-23 21:48:44,online transfer,145.6,misc_credit,67941.4725755
+credit,2017-03-31 01:26:00,interest payment,392.5,misc_credit,68333.9725755
+credit,2017-03-20 16:14:35,interest payment,55.81,acct_xfer,68389.7825755
+credit,2017-01-19 17:56:28,online transfer,360.1,misc_credit,68749.8825755
+credit,2016-12-25 07:16:11,online transfer,450.16,acct_xfer,69200.0425755
+credit,2017-03-15 15:58:50,online transfer,62.21,acct_xfer,69262.2525755
+credit,2017-01-19 12:31:21,interest payment,171.87,acct_xfer,69434.1225755
+credit,2016-12-25 14:52:29,online transfer,284,misc_credit,69718.1225755
+credit,2017-04-01 00:10:08,online transfer,119.32,acct_xfer,69837.4425755
+credit,2017-01-27 15:32:51,online transfer,294.02,acct_xfer,70131.4625755
+credit,2016-12-14 02:47:00,online transfer,221.63,acct_xfer,70353.0925755
+debit,2016-12-14 11:15:59,cbp transfer from savings,-444.133614696,misc_credit,69908.9589608
+credit,2017-02-23 23:47:42,interest payment,379.38,acct_xfer,70288.3389608
+debit,2017-01-05 15:36:44,cbp transfer from savings,-249.214811423,acct_xfer,70039.1241494
+credit,2017-03-19 05:20:30,online transfer,258.46,acct_xfer,70297.5841494
+credit,2017-02-03 06:58:10,interest payment,452.41,acct_xfer,70749.9941494
+credit,2017-03-03 12:53:11,interest payment,341.63,acct_xfer,71091.6241494
+credit,2017-01-06 12:33:59,interest payment,52.91,acct_xfer,71144.5341494
+credit,2017-01-07 05:41:16,online transfer,120.81,misc_credit,71265.3441494
+credit,2017-02-22 11:13:50,interest payment,443.9,misc_credit,71709.2441494
+credit,2017-02-08 10:09:34,online transfer,64.5,misc_credit,71773.7441494
+credit,2017-03-19 15:35:10,interest payment,381.04,acct_xfer,72154.7841494
+debit,2017-03-16 08:41:42,cbp transfer from savings,-60.9158248533,acct_xfer,72093.8683246
+credit,2017-02-19 14:17:44,online transfer,205.34,acct_xfer,72299.2083246
+credit,2017-03-10 03:04:45,interest payment,313.68,misc_credit,72612.8883246
+credit,2017-03-15 07:43:06,online transfer,400.5,acct_xfer,73013.3883246
+credit,2017-03-27 00:07:46,interest payment,189.99,acct_xfer,73203.3783246
+credit,2017-04-01 19:19:12,interest payment,290.22,acct_xfer,73493.5983246
+credit,2017-01-29 18:08:59,online transfer,226.99,misc_credit,73720.5883246
+credit,2016-12-14 11:15:42,interest payment,163.29,acct_xfer,73883.8783246
+credit,2017-01-24 18:03:49,online transfer,68.32,misc_credit,73952.1983246
+debit,2017-01-26 19:55:49,cbp transfer from savings,-353.533164629,acct_xfer,73598.6651599
+credit,2017-02-17 08:03:15,interest payment,156.44,acct_xfer,73755.1051599
+credit,2017-03-10 00:38:48,online transfer,362.93,misc_credit,74118.0351599
+credit,2017-02-13 13:01:18,online transfer,91.53,misc_credit,74209.5651599
+credit,2017-03-06 18:00:05,interest payment,54.61,acct_xfer,74264.1751599
+credit,2017-02-22 16:30:36,interest payment,491.28,acct_xfer,74755.4551599
+debit,2017-02-07 05:33:52,cbp transfer from savings,-487.928389103,acct_xfer,74267.5267708
+credit,2016-12-19 10:54:15,online transfer,452.51,misc_credit,74720.0367708
+credit,2017-03-28 08:45:44,online transfer,492.86,misc_credit,75212.8967708
+credit,2017-02-25 22:54:48,online transfer,260.42,acct_xfer,75473.3167708
+credit,2017-02-06 20:53:32,interest payment,203.59,acct_xfer,75676.9067708
+credit,2016-12-23 12:46:31,interest payment,481.9,acct_xfer,76158.8067708
+credit,2017-04-03 07:31:09,online transfer,323.62,acct_xfer,76482.4267708
+credit,2017-03-27 14:54:13,interest payment,387.2,misc_credit,76869.6267708
+credit,2017-02-04 05:30:12,interest payment,333.93,misc_credit,77203.5567708
+credit,2016-12-29 17:38:20,interest payment,201.81,misc_credit,77405.3667708
+credit,2017-03-26 02:17:35,online transfer,463.79,misc_credit,77869.1567708
+credit,2017-02-11 18:43:55,online transfer,339.02,misc_credit,78208.1767708
+credit,2017-01-06 04:26:01,online transfer,129.31,acct_xfer,78337.4867708
+credit,2016-12-13 17:13:41,interest payment,277.6,acct_xfer,78615.0867708
+credit,2017-01-08 04:39:13,online transfer,83.2,misc_credit,78698.2867708
+credit,2016-12-26 07:31:58,online transfer,475.62,acct_xfer,79173.9067708
+credit,2017-03-20 05:28:49,interest payment,429.45,acct_xfer,79603.3567708
+credit,2017-02-23 00:18:24,online transfer,270.16,misc_credit,79873.5167708
+credit,2017-03-14 14:40:13,online transfer,111.47,acct_xfer,79984.9867708
+credit,2016-12-15 02:25:45,online transfer,369.19,acct_xfer,80354.1767708
+credit,2017-02-05 13:22:18,online transfer,202.81,acct_xfer,80556.9867708
+credit,2017-01-09 14:46:48,interest payment,429.12,acct_xfer,80986.1067708
+debit,2016-12-19 23:30:13,cbp transfer from savings,-260.2834422,acct_xfer,80725.8233286
+credit,2017-01-25 09:29:45,interest payment,187.05,acct_xfer,80912.8733286
