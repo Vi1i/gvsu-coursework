@@ -14,3 +14,10 @@ via `git subtree`.
 | CIS 458 | System Security | — | Fall 2015 | [cis458/](cis458) |
 | CIS 467 | Computer Science Project (Senior Capstone — Automata topic) | — | Fall 2016 | [cis467/](cis467) |
 | CIS 616 | Data Security and Privacy | Bhuse | Winter 2018 | [cis616/](cis616) |
+| CIS 675 | Compiler Construction | — | Summer 2018 | [cis675/](cis675) |
+
+> **Note on `cis675/`:** Imported from the `hw6` branch of the original repo,
+> which was a strict superset of `master` and `bison` and contained the most
+> complete homework progression (HW2–HW6 with Lexer/Parser → Bison/Flex →
+> graph connectedness). A `python` branch with a divergent HW5 attempt was
+> left behind.
