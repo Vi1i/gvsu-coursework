@@ -69,6 +69,7 @@ Leidig · Spring 2017
 | Project | Tech | Description |
 |---|---|---|
 | [`cis671/d3_lab/`](cis671/d3_lab) | HTML / D3 | D3 lab exercise |
+| [`cis671/vfin/`](cis671/vfin) | PHP | Financial-data visualization |
 
 ---
 
