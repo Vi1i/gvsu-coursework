@@ -56,6 +56,7 @@ Wolffe / Leidig · Spring 2017
 | Project | Tech | Description |
 |---|---|---|
 | [`cis678/nbdc/`](cis678/nbdc) | C++ | Naïve Bayes Document Classifier |
+| [`cis678/decisiontree/`](cis678/decisiontree) | C++ | Decision tree learner |
 
 ---
 
