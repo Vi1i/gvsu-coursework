@@ -15,9 +15,15 @@ via `git subtree`.
 | CIS 467 | Computer Science Project (Senior Capstone — Automata topic) | — | Fall 2016 | [cis467/](cis467) |
 | CIS 616 | Data Security and Privacy | Bhuse | Winter 2018 | [cis616/](cis616) |
 | CIS 675 | Compiler Construction | — | Summer 2018 | [cis675/](cis675) |
+| CIS 677 | High-performance Computing | Wolffe | Fall 2016 | [cis677/](cis677) (partial — see note) |
 
 > **Note on `cis675/`:** Imported from the `hw6` branch of the original repo,
 > which was a strict superset of `master` and `bison` and contained the most
 > complete homework progression (HW2–HW6 with Lexer/Parser → Bison/Flex →
 > graph connectedness). A `python` branch with a divergent HW5 attempt was
 > left behind.
+
+> **Note on `cis677/`:** Only the introductory MPI homework lives here. The
+> larger CIS 677 projects (Sobel edge detection, Floyd–Warshall, CUDA dot
+> product, Laplacian diffusion, k-queens) are kept as standalone repos under
+> [Vi1i](https://github.com/Vi1i?tab=repositories).
