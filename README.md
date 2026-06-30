@@ -66,7 +66,9 @@ Wolffe / Leidig · Spring 2017
 ## CIS 671 — Information Visualization
 Leidig · Spring 2017
 
-_(entries added as projects are imported)_
+| Project | Tech | Description |
+|---|---|---|
+| [`cis671/d3_lab/`](cis671/d3_lab) | HTML / D3 | D3 lab exercise |
 
 ---
 
