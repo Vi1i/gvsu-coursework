@@ -1,0 +1,74 @@
+ ✘ ⚙  ~/git/vi1i/cis452/lab8   master  gcc -std=c9x -o map map.c
+map.c: In function ‘main’:
+map.c:17:5: warning: implicit declaration of function ‘sbrk’ [-Wimplicit-function-declaration]
+     printf ("address of heap start = \t%012p\n", sbrk(0));
+     ^
+ ⚙  ~/git/vi1i/cis452/lab8   master  ./map                    
+address of init =               0x0000601078
+address of un_init =            0x0000601088
+address of heap start =         0x0002412000
+address of heap_varS =          0x00023f1010
+address of heap_varE =          0x00023f1203
+address of stackA[0] =          0x7fff8465d720
+address of stackA[79] =         0x7fff8465d85c
+address of stack =              0x7fff8465d864
+memory map file: /proc/27874/maps
+sleeping 10...^Z
+[3]  + 27874 suspended  ./map
+ ✘ ⚙  ~/git/vi1i/cis452/lab8   master  cat /proc/27874/maps 
+00400000-00401000 r-xp 00000000 00:27 67639070                           /home/oboylel/git/vi1i/cis452/lab8/map
+00600000-00601000 r--p 00000000 00:27 67639070                           /home/oboylel/git/vi1i/cis452/lab8/map
+00601000-00602000 rw-p 00001000 00:27 67639070                           /home/oboylel/git/vi1i/cis452/lab8/map
+023f1000-02412000 rw-p 00000000 00:00 0                                  [heap]
+7f0da7ba5000-7f0da7d5b000 r-xp 00000000 08:02 787490                     /usr/lib64/libc-2.17.so
+7f0da7d5b000-7f0da7f5b000 ---p 001b6000 08:02 787490                     /usr/lib64/libc-2.17.so
+7f0da7f5b000-7f0da7f5f000 r--p 001b6000 08:02 787490                     /usr/lib64/libc-2.17.so
+7f0da7f5f000-7f0da7f61000 rw-p 001ba000 08:02 787490                     /usr/lib64/libc-2.17.so
+7f0da7f61000-7f0da7f66000 rw-p 00000000 00:00 0 
+7f0da7f66000-7f0da7f87000 r-xp 00000000 08:02 787483                     /usr/lib64/ld-2.17.so
+7f0da815b000-7f0da815e000 rw-p 00000000 00:00 0 
+7f0da8184000-7f0da8186000 rw-p 00000000 00:00 0 
+7f0da8186000-7f0da8187000 r--p 00020000 08:02 787483                     /usr/lib64/ld-2.17.so
+7f0da8187000-7f0da8188000 rw-p 00021000 08:02 787483                     /usr/lib64/ld-2.17.so
+7f0da8188000-7f0da8189000 rw-p 00000000 00:00 0 
+7fff8463f000-7fff84661000 rw-p 00000000 00:00 0                          [stack]
+7fff846b4000-7fff846b6000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+ ⚙  ~/git/vi1i/cis452/lab8   master  size -A -x map
+map  :
+section               size       addr
+.interp               0x1c   0x400238
+.note.ABI-tag         0x20   0x400254
+.note.gnu.build-id    0x24   0x400274
+.gnu.hash             0x1c   0x400298
+.dynsym              0x120   0x4002b8
+.dynstr               0x6e   0x4003d8
+.gnu.version          0x18   0x400446
+.gnu.version_r        0x20   0x400460
+.rela.dyn             0x18   0x400480
+.rela.plt            0x108   0x400498
+.init                 0x1a   0x4005a0
+.plt                  0xc0   0x4005c0
+.text                0x2c4   0x400680
+.fini                  0x9   0x400944
+.rodata              0x155   0x400950
+.eh_frame_hdr         0x34   0x400aa8
+.eh_frame             0xf4   0x400ae0
+.init_array            0x8   0x600e10
+.fini_array            0x8   0x600e18
+.jcr                   0x8   0x600e20
+.dynamic             0x1d0   0x600e28
+.got                   0x8   0x600ff8
+.got.plt              0x70   0x601000
+.data                 0x10   0x601070
+.bss                  0x10   0x601080
+.comment              0x2d        0x0
+Total                0xc33
+
+
+ ⚙  ~/git/vi1i/cis452/lab8   master  ldd map
+        linux-vdso.so.1 =>  (0x00007f96b179a000)
+        libc.so.6 => /lib64/libc.so.6 (0x00007f96b13b1000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f96b179c000)
+ ⚙  ~/git/vi1i/cis452/lab8   master  
+

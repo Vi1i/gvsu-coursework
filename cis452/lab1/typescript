@@ -1,0 +1,47 @@
+Script started on Thu 08 Jan 2015 11:06:37 AM EST
+[?1034h[eos08:~/CS452/lab1]$ gv[Kc[Kcc -Wall -g sp1.c -lm
+[eos08:~/CS452/lab1]$ d[Kgdb a.out 
+[?1034hGNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/oboylel/CS452/lab1/a.out...done.
+(gdb) break main
+Breakpoint 1 at 0x400628: file sp1.c, line 6.
+(gdb) show [K[K[K[K[Kp[Krun
+Starting program: /home/oboylel/CS452/lab1/a.out 
+
+Breakpoint 1, main () at sp1.c:6
+6		double num = 0.0;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7_0.1.x86_64
+(gdb) n
+7		printf ("Hello, world.\n");
+(gdb) print num
+$1 = 0
+(gdb) n
+Hello, world.
+8		num = pow(2, 28);
+(gdb) n
+9		printf ("You are the %f person to write this program!\n", num);
+(gdb) print nui[Km
+$2 = 268435456
+(gdb) n
+You are the 268435456.000000 person to write this program!
+10		return 0;
+(gdb) n
+11	}
+(gdb) n
+0x00007ffff773aaf5 in __libc_start_main () from /lib64/libc.so.6
+(gdb) n
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+[Inferior 1 (process 22513) exited normally]
+(gdb) quit
+[eos08:~/CS452/lab1]$ exit
+
+Script done on Thu 08 Jan 2015 11:08:30 AM EST

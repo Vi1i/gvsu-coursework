@@ -1,0 +1,57 @@
+Script started on Thu 09 Apr 2015 07:53:35 AM EDT
+[?1034h[arch06:~/git/vi1i/cis452/lab10]$ ls -s /lab/web/eosLabs/
+total 112
+ 8 dia.html	  8 environment.html  12 fsBasics.html	    12 jobControl.html	 8 programming.html
+ 8 editors.html  20 fsAdvanced.html    8 introduction.html   8 networking.html	20 utilities.html
+[arch06:~/git/vi1i/cis452/lab10]$ ./a.out -s /lab/web/eosLabs/
+.  4	
+fsBasics.html  12	
+jobControl.html  12	
+utilities.html  20	
+programming.html  8	
+dia.html  8	
+introduction.html  8	
+editors.html  8	
+..  4	
+environment.html  8	
+networking.html  8	
+fsAdvanced.html  20	
+[arch06:~/git/vi1i/cis452/lab10]$ ls -i
+67895521 a.out	67899147 part1	67896927 sp1.c	67899207 typescript
+67895744 pa1.c	67899141 part2	67899139 sp2.c
+[arch06:~/git/vi1i/cis452/lab10]$ ./a.out -i /lab/web/eosLabs/
+.  9570464  
+fsBasics.html  9570470  
+jobControl.html  9570472  
+utilities.html  9570473  
+programming.html  9570471  
+dia.html  9570468  
+introduction.html  9570474  
+editors.html  9570465  
+..  9570463  
+environment.html  9570467  
+networking.html  9570469  
+fsAdvanced.html  9570466  
+[arch06:~/git/vi1i/cis452/lab10]$ ls -si[K -i /lab/web/eosLabs/
+total 112
+9570468  8 dia.html	     9570470 12 fsBasics.html	   9570471  8 programming.html
+9570465  8 editors.html      9570474  8 introduction.html  9570473 20 utilities.html
+9570467  8 environment.html  9570472 12 jobControl.html
+9570466 20 fsAdvanced.html   9570469  8 networking.html
+[arch06:~/git/vi1i/cis452/lab10]$ ./a.out -s -i /lab/web/eosLabs/
+.  9570464  4	
+fsBasics.html  9570470  12	
+jobControl.html  9570472  12	
+utilities.html  9570473  20	
+programming.html  9570471  8	
+dia.html  9570468  8	
+introduction.html  9570474  8	
+editors.html  9570465  8	
+..  9570463  4	
+environment.html  9570467  8	
+networking.html  9570469  8	
+fsAdvanced.html  9570466  20	
+[arch06:~/git/vi1i/cis452/lab10]$ exit
+exit
+
+Script done on Thu 09 Apr 2015 07:55:10 AM EDT
