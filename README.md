@@ -46,6 +46,7 @@ Wolffe · Fall 2016
 | [`cis677/floyd_warshall/`](cis677/floyd_warshall) | OpenMPI | Floyd's all-pairs shortest path |
 | [`cis677/cuda_dotproduct/`](cis677/cuda_dotproduct) | CUDA 8.0 | Vector dot product on GPU |
 | [`cis677/laplacian_diffusion/`](cis677/laplacian_diffusion) | CUDA | GPU-accelerated Laplacian diffusion |
+| [`cis677/k_queens/`](cis677/k_queens) | C + MPI | k-queens, MPI implementation (imported from `mpi` branch — superset of master) |
 
 ---
 
