@@ -1,0 +1,4 @@
+// the configured options and settings for flesh-index
+#define flesch_index_VERSION_MAJOR @flesch_index_VERSION_MAJOR@
+#define flesch_index_VERSION_MINOR @flesch_index_VERSION_MINOR@
+#define flesch_index_VERSION_PATCH @flesch_index_VERSION_PATCH@
