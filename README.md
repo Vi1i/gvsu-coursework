@@ -9,3 +9,4 @@ via `git subtree`.
 |---|---|---|---|---|
 | CIS 343 | Structure of Programming Languages | Nandigam | Fall 2014 | [cis343/](cis343) |
 | CIS 457 | Data Communications | Kalafut | Fall 2014 | [cis457/](cis457) |
+| CIS 451 | Computer Architecture | Kurmas | Winter 2015 | [cis451/](cis451) |
