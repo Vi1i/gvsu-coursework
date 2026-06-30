@@ -1,0 +1,80 @@
+#> InputSetLoader: gvFormat.InputSetLoaderSimpleGVFormat
+
+###########################################################################
+#
+# *Partially* test a 16-bit ALU.  (The student is responsible for
+# designing a more comprehensive test.)  Note: This tests the ALU
+# only.  It does not thoroughly test the underlying adder/subtracter
+# and multiplier.
+#
+# Author: Zachary Kurmas
+# (C) 2007 Grand Valley State University
+#
+##########################################################################
+
+BEGIN add
+  INPUTS
+    InputA SIGNED(16) [1, -3, 2^15-1]
+    InputB SIGNED(16) [1, 2^15-1]
+    Op 0
+  OUTPUTS
+    Output SIGNED(16) [2, -2^15, -2, 2^15-4, -2^15, -2]
+    Overflow [0, 1, 0, 0, 1, 1]
+
+BEGIN subtract
+  INPUTS
+    InputA SIGNED(16) [1, -3]
+    InputB SIGNED(16) [-1, 2^15-1]
+    Op 4
+  OUTPUTS
+    Output SIGNED(16) [2, -2^15+2, -2, 2^15-2]
+    Overflow [0, 0, 0, 1]
+
+
+BEGIN mult_overflow2
+ INPUTS 
+    InputA SIGNED(16) 1237 
+    InputB SIGNED(16) [1251, -1257, 1]
+    Op 1
+  OUTPUTS
+    Output [0x9cdf, 0x4623, 1237]
+    High [0x0017, 0xffe8, 0] 
+    Overflow [1, 1, 0]
+
+#
+# WARNING:  Be sure to test pairs of values that 
+# (1) Will make the subtractor overflow
+# (2) Will give different answers for less than and less than unsigned
+#
+# Hint:  If intentionally switching your op codes doesn't cause a failure, then
+# your tests aren't good enough.
+
+BEGIN less_than_signed
+  INPUTS
+    InputA SIGNED(16) 5
+    InputB SIGNED(16) [-1, 4, 6, -0xFF, -0x7000, -0x7FFF, -2, -5, 0, 10, 0x7FFF, 0x7000, 0x1000, 5]
+    Op 6
+  OUTPUTS
+    Output [0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0]
+    Overflow 0
+	
+BEGIN less_than_signed2
+  INPUTS
+    InputA SIGNED(16) 0x7FFF
+    InputB SIGNED(16) [-1, 4, 6, -0xFF, -0x7000, -0x7FFF, -2, -5, 0]
+    Op 6
+  OUTPUTS
+    Output [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    Overflow 0
+
+BEGIN less_than_unsigned
+  INPUTS
+    InputA 5
+    InputB [1, 4, 6, 0xF000, 0xFFFF, 5, 0]
+    Op 7
+  OUTPUTS
+    Output [0, 0, 1, 1, 1, 0, 0]
+    Overflow 0
+
+
+# last line

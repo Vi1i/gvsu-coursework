@@ -1,0 +1,5 @@
+for i in eos22 eos29 arch03 dc05
+do
+        echo -n "$i "
+        ssh $i ~/git/vi1i/cis451/lab9/Test/time_tester.pl ~/git/vi1i/cis451/lab9/Test/test_2add.s --start 0 --stop 25000 --step 200 > $PWD/file_$i
+done
