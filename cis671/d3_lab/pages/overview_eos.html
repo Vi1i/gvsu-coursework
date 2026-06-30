@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <link rel="stylesheet" href="../css/styles.css"/>
+    <link href="../css/prism.css" rel="stylesheet"/>
+  <title>EOS</title>
+  </head>
+  <body bgcolor=white>
+    <script src="../js/prism.js"></script>
+    <table class="h_table">
+      <tr>
+        <th class="absorbing-column">
+          <img src="../imgs/d3.svg" width="100%">
+        </th>
+        <th>
+          <h1>Setting up the site</h1>
+        </th>
+      </tr>
+    </table>
+
+    <p>To correctly use the D3, there needs to be a webserver to process the
+       results, and as apart of the CIS program, you have access to an account
+       that can be used for this, but we need to do some minimal setup for it
+       to work.
+    </p>
+    <p>Thi setup will include:</p>
+    <ol>
+      <li>Logging In</li>
+      <ol>
+        <li>X2Go</li>
+        <li>SSH</li>
+      </ol>
+      <li>Permissions</li>
+    </ol>
+
+    <h2>Logging In!</h2>
+    <p>By now, everyone should have received and email that gave them a username
+       and password. If not, please contact the current Systems Administrator to
+       help you out.
+    </p>
+    <p>Now, to use X2Go or SSH. <b>X2Go</b> will give you a full virtual desktop
+       that will make it feel as if you were sitting at the computer itself,
+       with graphical interface. <b>SSh</b> will give you only a temrinal line
+       to use, meaining no mouse.
+    </p>
+    <p><b>Note!</b> If using X2go, make sure the system used has the
+       required version 4.0.5.0
+    </p>
+    <h2>Permissions</h2>
+    <p>Once logged into the systems, the first thing that needs to be done is to
+       allow the webserver to read the <code>public_html</code> directory. The
+       bash commands below need to be run on the terminal.
+    </p>
+    <pre class="line-numbers"><code class="language-bash">
+      chmod o+x ~
+      chmod o+x ~/public_html
+    </code></pre>
+  </body>
+</html>

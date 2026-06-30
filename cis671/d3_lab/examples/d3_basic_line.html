@@ -1,0 +1,193 @@
+<doctype html>
+<html>
+	<head>
+		<!-- This is what tells teh browser what this file is -->
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+
+		<!-- This is how we link to the D3 funcitons, if we wanted, we could
+		     download the actual file and host it ourselves.  This has its 
+		     benefits and drawbacks, but for this short example, we will just
+		     reference it from the web. -->
+		<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+	</head>
+	<body>
+	<!-- This is where we presetup the html with a SVG, we do not need to do
+	     this, but it makes things easier right now -->
+	<svg id="visulization" width="1000" height="500"
+		viewBox="0 0 1000 500">
+	</svg>
+		<script>
+			// Now this is where we collect the data on the SVG we set up, and
+			// settle our graph over it.
+			var svg = d3.select("#visulization"),
+				// We set the margins
+				margin = {top: 20, right: 20, bottom: 30, left: 50},
+				// Set the width based on the margins and svg size
+				width = +svg.attr("width") - margin.left - margin.right,
+				// Set the height based on the margins and svg size
+				height = +svg.attr("height") - margin.top - margin.bottom,
+				// This is where we assign the graph the variable to the
+				// information so we do not have to make this long call every
+				// time we want to add an element to the graph.
+				graph = svg.append("g").attr("transform", "translate(" + 
+					margin.left + "," + margin.top + ")");
+
+			// This is the file where the data we want is
+			var filename = "../data/creditCard-mod.csv";
+
+			// A D3 function that will modify the time read in, to a format that
+			// stores better.
+			var parseTime = d3.timeParse("%m/%d/%Y");
+
+			// We set up the x to be a function that sets a scale based on the
+			// data it is given it is given to the graph size.
+			var x = d3.scaleTime().rangeRound([0, width]);
+			// We set up the y to be a function that sets a scale based on the
+			// data it is given to the graph size.
+			var y = d3.scaleLinear().rangeRound([height, 0]);
+			// The line funciton takes in an object, that it can return on. For
+			// us, this will be a single line, like how we did the printing in
+			// the previous examples.
+			var line = d3.line()
+				.x(function(d) { return x(d["Trans Date"]); })
+				.y(function(d) { return y(d.Total); });
+
+			var total = 0;
+			// This calls the D3 function that will open a file that is a CSV
+			d3.csv(filename, function(d) {
+				// The function(d) makes an anonympus function that takes in an
+				// argument d.
+				// What is happening is that D3 reads line by line the CSV file,
+				// and after each line read in, passes the line to this
+				// function.
+
+				// This function only reads in the data, and passes it right
+				// back out, later, we will use this function to modify the
+				// data.
+
+				// The console.log() command, is very useful for debugging. This
+				// prints out to the console on the browser. Showing the console
+				// can vary on the browser, usually right clicking the web page
+				// will bring up a menu with inspect as an option. In the
+				// inspect page, there is a tab called console where the output
+				// is.
+				console.log(d);
+
+				// This little block turns the data into d3 readable time
+				// stamps.
+				// This is also, modifying the data, and reassigning it to the
+				// same variable.
+				d["Trans Date"] = parseTime(d["Trans Date"]);
+				d["Post Date"] = parseTime(d["Post Date"]);
+
+				// This converts the data from "text" to "digits"
+				d.Amount = +d.Amount;
+
+				// Keep a running "total" for a balance
+				total += d.Amount;
+
+				//this acutall creates a new key in the object to hold new data
+				d.Total = total;
+
+				// Now we return our modifed data.
+				return d;
+			}, function(error, data) {
+				// This anonymous funtion is the end of the read, variable error
+				// has data if D3.csv encoutnered an error. Variable data is the
+				// end result of reading in the csv file, so it contains all of
+				// returned d's from the previous anonmous function.
+				console.log(data);
+
+				// Straight forward, check if an error happened. If it did,
+				// throw the error onward.
+				if (error) throw error;
+
+				// We now assign the x domain value range, so that we know what
+				// to display on the x axis. Notice how this return the same
+				// data as the x function above.
+				x.domain(d3.extent(data, function(d) {
+					return d["Trans Date"];
+				}));
+
+				// We now assign the y domain value range, so that we know what
+				// to display on the y axis. Notice how this return the same
+				// data as the y function above.
+				y.domain(d3.extent(data, function(d) {
+					return d.Total;
+				}));
+
+				// This is the first part of the graph, we are creating the
+				// x-axis that will be viewed.
+				// Commenting the below 5 lines, will remove the x-axis info.
+				graph.append("g")
+					// This is what tells D3, where the line needs to be drawn,
+					// otherwise it would place it at the top of the graph.
+					.attr("transform", "translate(0," + height + ")")
+					// This is what tells D3 to draw this as an axis, and to use
+					// the data set from x, This includes the next two lines
+					.call(d3.axisBottom(x))
+					.select(".domain")
+					// This tells D3 to remove the line it would create, but
+					// leaves the tics on the line.
+					.remove();
+
+				// This is what puts a floating line at the 0 mark in the axis,
+				// across the x a-axis. Most datasets probably don't need this,
+				// but it provides an interesting view on this particular data.
+				graph.append("g")
+					// This is what tells D3, where the line needs to be drawn,
+					// otherwise it would place it at the top of the graph.
+					.attr('transform', 'translate(' + 0 + ', ' + y(0) + ')')
+					// this next call is the same as before, but I didn't want
+					// the tic mark, or the printing of the data to show. So,
+					// it was set to a width of 0 and a pring og empty.
+					.call(d3.axisBottom(x).tickSizeInner(0).tickFormat("")
+						.tickSizeOuter(0))
+					.select(".domain")
+
+				// Just like the above drew the x-axis, this draws the y-axis.
+				// The difference is just the call .axisLeft instead of
+				// .axisBottom.
+				graph.append("g")
+					// The call to notfy D3 what we are drawing with the y
+					// domain
+					.call(d3.axisLeft(y))
+					// Now we want to put text on the y-axis, to tell the user
+					// what we are displaying.
+					.append("text")
+					// This fills the text with colot
+					.attr("fill", "#000")
+					// This is what rotates the text so it horizontal with the
+					// line.
+					.attr("transform", "rotate(-90)")
+					// This shifts the text by 6 fromn the y-xis.
+					.attr("y", 6)
+					.attr("dy", "0.71em")
+					// The type of text
+					.attr("text-anchor", "end")
+					// The actual text to be written.
+					.text("Price ($)");
+
+				// This is where we actually graph the data, with out this next
+				// code chunk, we would just have a line with now axis to
+				// reference it too.
+				graph.append("path")
+					// We pass the data to D3, and tell it to llok at each
+					// object we pass it individually.
+					.datum(data)
+					// We tell it not to fill the line, this makes it look
+					// pretty weird, and has to do with how D3 actually draws
+					// the line, can show interesting things though.
+					.attr("fill", "none")
+					// The color of the edges, so in this case the actual line.
+					.attr("stroke", "steelblue")
+					// This sets the size of the line
+					.attr("stroke-width", 1.5)
+					// And this is what draws the line, this does refernce the
+					// line function we made on 52.
+					.attr("d", line);
+			});
+		</script>
+	</body>
+</html>

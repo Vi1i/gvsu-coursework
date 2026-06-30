@@ -1,0 +1,8 @@
+table .h_table {
+    margin-top:10px //moves your table 10pixels down
+    margin-left:10px //moves your table 10pixels right
+}
+
+table .absorbing-column {
+    width:167px;
+}

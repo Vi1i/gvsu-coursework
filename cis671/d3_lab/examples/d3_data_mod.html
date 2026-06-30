@@ -1,0 +1,107 @@
+<doctype html>
+<html>
+	<head>
+		<!-- This is what tells teh browser what this file is -->
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+
+		<!-- This is how we link to the D3 funcitons, if we wanted, we could
+		     download the actual file and host it ourselves.  This has its 
+		     benefits and drawbacks, but for this short example, we will just
+		     reference it from the web. -->
+		<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<script>
+			// This is the file where the data we want is
+			var filename = "../data/creditCard-mod.csv";
+
+			// A D3 function that will modify the time read in, to a format that
+			// stores better.
+			var parseTime = d3.timeParse("%m/%d/%Y");
+			var total = 0;
+
+			// This calls the D3 function that will open a file that is a CSV
+			d3.csv(filename, function(d) {
+				// The function(d) makes an anonympus function that takes in an
+				// argument d.
+				// What is happening is that D3 reads line by line the CSV file,
+				// and after each line read in, passes the line to this
+				// function.
+
+				// This function only reads in the data, and passes it right
+				// back out, later, we will use this function to modify the
+				// data.
+
+				// The console.log() command, is very useful for debugging. This
+				// prints out to the console on the browser. Showing the console
+				// can vary on the browser, usually right clicking the web page
+				// will bring up a menu with inspect as an option. In the
+				// inspect page, there is a tab called console where the output
+				// is.
+				console.log(d);
+
+				// This little block turns the data into d3 readable time
+				// stamps.
+				// This is also, modifying the data, and reassigning it to the
+				// same variable.
+				d["Trans Date"] = parseTime(d["Trans Date"]);
+				d["Post Date"] = parseTime(d["Post Date"]);
+
+				// This converts the data from "text" to "digits"
+				d.Amount = +d.Amount;
+
+				// Keep a running "total" for a balance
+				total += d.Amount;
+
+				//this acutall creates a new key in the object to hold new data
+				d.Total = total;
+
+				// Now we return our modifed data.
+				return d;
+			}, function(error, data) {
+				// This anonymous funtion is the end of the read, variable error
+				// has data if D3.csv encoutnered an error. Variable data is the
+				// end result of reading in the csv file, so it contains all of
+				// returned d's from the previous anonmous function.
+				console.log(data);
+
+				// Straight forward, check if an error happened. If it did,
+				// throw the error onward.
+				if (error) throw error;
+
+
+				// This is the second part of the magic of D3, where we can
+				// update the html with the data we found.
+
+				// Here, we tell D3 that we are selcting the "body" in the html.
+				d3.select("body")
+					// Now, on the selected part, we enter the data that we
+					// opened.
+					.data(data)
+					// Then we tell D3 to look at each piece of data
+					.enter()
+					// And that for each object in the data, we will append to
+					// to the "body" a "p", which is <p> or a paragraph.
+					.append("p")
+					// We are telling D3 that we want to put a text in the "p",
+					// and the data we are passing is an anonymous function.
+					// The anonymous funciton is here because the singlure
+					// object we are looking at contains more than just one
+					// thing, and we don't want to print out the hash of the
+					// object name.
+					.text(function(d) {
+						// We log the object to the console, where you can view
+						// what is in the obect
+						console.log(d);
+						// In this example, we want to print the transaction
+						// date, which is held in the obejct by the key
+						// "Trand Date".
+						// When that data is returned, D3 takes it and make a
+						// <p> in the html of our page
+						return d["Trans Date"];
+					});
+			});
+		</script>
+	</body>
+</html>
